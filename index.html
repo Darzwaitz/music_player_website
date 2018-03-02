@@ -30,26 +30,27 @@
 <main>
      <section>
          <div id="trackList">
-            <div class="trackNamesA">
+            <div id="trackNamesA">
                 <ul id="trackNames">
-                        <li><h2>Track 1</h2></li>
-                        <li><h2>Track 2</h2></li>
-                        <li><h2>Track 3</h2></li>
-                        <li><h2>Track 4</h2></li>
-                        <li><h2>Track 5</h2></li>
-                        <li><h2>Track 6</h2></li>
+                        <li><h2>R30 Overture</h2></li>
+                        <li><h2>Earthshine</h2></li>
+                        <li><h2>Subdivisions</h2></li>
+                        <li><h2>Free Will</h2></li>
+                        <li><h2>Dreamline</h2></li>
+                        <li><h2>Manhattan Project</h2></li>
+                        
                          
                 </ul>
             </div> <!-- end NamesA -->
 
-                <div class="trackNamesB">
+                <div id="trackNamesB">
                     <ul>
-                        <li><h2>Track 7</h2></li>
-                        <li><h2>Track 8</h2></li>
-                        <li><h2>Track 9</h2></li>
-                        <li><h2>Track 10</h2></li>
-                        <li><h2>Track 11</h2></li>
-                        <li><h2>Track 12</h2></li>
+                        <li><h2>Marathon</h2></li>
+                        <li><h2>Heart Full of Soul</h2></li>
+                        <li><h2>Bravado</h2></li>
+                        <li><h2>Closer to the Heart</h2></li>
+                        <li><h2>Limelight</h2></li>
+                        <li><h2>Mission</h2></li>
                     </ul>    
                 </div> <!-- end NamesB -->
             
@@ -59,7 +60,7 @@
        <footer>
         <span><h4>Pete'z website - Copyright &copy; 2018</h4></span>
         <!-- link to external font site -->
-        <a href="http://www.2112.net/rushfonts" title="Font for this site" target="_blank"><img class="font-img" border="1" style="border-color: silver" src="http://www.2112.net/rushfonts/rfpbanner.gif" alt="Click here for the RUSH Font Project"></a>
+        <a href="http://www.2112.net/rushfonts" title="Font for this site" target="_blank"><img id="font-img" border="1" style="border-color: silver" src="http://www.2112.net/rushfonts/rfpbanner.gif" alt="Click here for the RUSH Font Project"></a>
        </footer>  
      </section>   
      
@@ -69,28 +70,30 @@
                                 <!-- PLAYER AREA -->
 <div id="playerArea">
     <!-- top div in player -->
-    <div class="playerTextArea">
-        <div class="playerText1"><h1>Track NO: 01 </h1></div>
-        <div class="playerText2"><h1>Track Title</h1></div>
-        <div class="playerText3"><h1>more info</h1></div>
+    <div id="playerTextArea">
+        <div id="trackNumber"><h1>Track NO: 01 </h1></div> <!--Track NO: 01 -->
+        <div id="trackTitle"><h1>Track Title</h1></div> <!-- Track Title -->
+        <div id="moreInfo"><h1>more info</h1></div> <!--more info-->
     </div>
     <!-- bottom div in player -->
-    <div class="playerCtrls">
-        <div class="skipBackward"></div>
-        <div class="rewind"></div>
-        <div class="playButton"></div> 
-        <!-- <! <div class="pauseButton"></div> --> 
-        <div class="progressBar">Play<input id="playBar" type="range"/></div>
-        <div class="fastForward"></div>
-        <div class="skipForward"></div>
-        <div class="volumeBar">Vol<input id="volBar" type="range"/></div>
+    <div id="playerCtrls">
+        <div id="skipBackward"></div>
+        <div id="rewind"></div>
+        <div id="playButton"></div> 
+        <!-- <! <div id="pauseButton"></div> --> 
+        <div id="progressBar">Play<input id="playBar" type="range"/></div>
+        <div id="fastForward"></div>
+        <div id="skipForward"></div>
+        <div id="volumeBar">Vol<input id="volBar" type="range" min="0" max="11"/></div>
     
     </div> <!-- END playerCtrls -->
 </div> <!-- END playerArea -->
 
 
 
- <!-- <script src="jscript.js" ></script> -->
+ <script src="scripts/jscript.js" ></script>
+ <script src="scripts/jquery-3.3.1.slim.js" ></script>
+
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 body{
 	margin : 0;
 	padding: 0;
-    background: url(../album-coverresize-1.jpg) no-repeat;
+    background: url(../img/album-coverresize-1.jpg) no-repeat;
     background-size: 100%;
     font-family: gup, tahoma, verdana;
 }
@@ -75,7 +75,7 @@ ul li{
 	line-height:210%;
 
 }
-.trackNamesA{
+#trackNamesA{
 	float: left;
 	/* position: relative; */
 	/* display: inline-block; */
@@ -83,7 +83,7 @@ ul li{
 	height: 100%;
 	/* background-color: lawngreen; */
 }
-.trackNamesB{
+#trackNamesB{
 	float: right;
 	/* position: relative; */
 	/* display: inline-block; */
@@ -140,7 +140,7 @@ footer {
     text-align: center;
 }
 /* font website img link */
-.font-img{
+#font-img{
 	width: 15%;
 	height: 10%;
 	display: block;
@@ -158,24 +158,24 @@ footer {
     margin: 0;
 }
 /* top divz */
-.playerTextArea{
+#playerTextArea{
     /* background-color: rgb(40, 245, 13); */
     width: 100%;
     height: 50%;
 }
-.playerTextArea h1{
+#playerTextArea h1{
     /* margin : 0; */
     margin-top : 1.5%;
 }
 
-.playerText1{
+#trackNumber{
     /* background-color: violet; */
     width: 33%;
     height: 100%;
     /* display: inline-block; */
     float: left;
 }
-.playerText2{
+#trackTitle{
     /* background-color: rgb(105, 5, 105); */
     width: 33%;
     height: 100%;
@@ -183,7 +183,7 @@ footer {
     float: left;
     
 }
-.playerText3{
+#moreInfo{
     /* background-color: rgb(46, 23, 46); */
     width: 33%;
     height: 100%;
@@ -191,25 +191,25 @@ footer {
     float: right;
 }
 /* bottom divz-ctrls */
-.playerCtrls{
+#playerCtrls{
     /* background-color: rgb(214, 247, 70); */
     width: 100%;
     height: 50%;
 }
-.skipBackward{
+#skipBackward{
     background: url(../iconz/back-1.svg) no-repeat center;
     width: 10%;
     height: 100%;
     display: inline-block;
       
 }
-.rewind{
+#rewind{
     background: url(../iconz/rewind.svg) no-repeat center;
     width: 10%;
     height: 100%;
     display: inline-block;
 }
-.playButton{
+#playButton{
     background: url(../iconz/play-button.svg) no-repeat center;
     width: 10%;
     height: 100%;
@@ -218,7 +218,7 @@ footer {
     filter:drop-shadow(2px 0px 4px black);
 }
 /* <!-- .pauseButton{} --> */
-.progressBar{
+#progressBar{
     /* background: url(../iconz/stop.svg) no-repeat center; */
     width: 30%;
     height: 90%;
@@ -233,19 +233,19 @@ footer {
     width: 90%;
     vertical-align: top;
 }
-.fastForward{
+#fastForward{
     background: url(../iconz/fast-forward.svg) no-repeat center;
     width: 10%;
     height: 100%;
     display: inline-block;
 }
-.skipForward{
+#skipForward{
     background: url(../iconz/next-1.svg) no-repeat center;
     width: 10%;
     height: 100%;
     display: inline-block;
 }
-.volumeBar{
+#volumeBar{
     /* background: url(../iconz/stop.svg) no-repeat center; */
     /* background-color: tomato; */
     width: 16%;
