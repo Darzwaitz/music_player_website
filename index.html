@@ -31,8 +31,8 @@
      <section>
          <div id="trackList">
             <div id="trackNamesA">
-                <ul id="trackNames">
-                        <li><h2>R30 Overture</h2></li>
+                <ul class="trackNames">
+                        <li class="active" ><h2>R30 Overture</h2></li>
                         <li><h2>Earthshine</h2></li>
                         <li><h2>Subdivisions</h2></li>
                         <li><h2>Free Will</h2></li>
@@ -44,7 +44,7 @@
             </div> <!-- end NamesA -->
 
                 <div id="trackNamesB">
-                    <ul>
+                    <ul class="trackNames">
                         <li><h2>Marathon</h2></li>
                         <li><h2>Heart Full of Soul</h2></li>
                         <li><h2>Bravado</h2></li>
@@ -80,8 +80,16 @@
         <div id="skipBackward"></div>
         <div id="rewind"></div>
         <div id="playButton"></div> 
-        <!-- <! <div id="pauseButton"></div> --> 
-        <div id="progressBar">Play<input id="playBar" type="range"/></div>
+        <div id="pauseButton" class="hidden"></div> 
+        <div id="progressBarArea">
+            <div id="emptyProgress">
+                <span id="displayProgress">
+                </span>
+            </div>
+            <span id="durationTime">
+            </span> 
+                        <!-- <input id="playBar" type="range"/> -->
+          </div> <!--end progress bar div-->
         <div id="fastForward"></div>
         <div id="skipForward"></div>
         <div id="volumeBar">Vol<input id="volBar" type="range" min="0" max="11"/></div>

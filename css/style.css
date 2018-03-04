@@ -72,8 +72,20 @@ section{
 
 ul li{
 	list-style-type: none;
-	line-height:210%;
+    line-height:210%;
+    cursor: pointer;
 
+}
+    /* active track style */
+/* .trackNames */
+.active{
+    font-weight: bold;
+    padding: -1px;
+    /* opacity: .2; */
+    margin: 0;
+    background: rgba(177, 196, 228, .5);
+    border-radius: 4px;
+    /* cursor: pointer; */
 }
 #trackNamesA{
 	float: left;
@@ -117,6 +129,7 @@ ul li{
     /* padding-bottom: 140px; */
     /* display: block; */
     box-shadow: 0 2px 14px 14px white inset;
+    border-radius: 4px;
     top:0;
     bottom:0; 
     right: 0;
@@ -217,22 +230,58 @@ footer {
     /* filter: drop-shadow( -5px -5px 5px #000 ); */
     filter:drop-shadow(2px 0px 4px black);
 }
-/* <!-- .pauseButton{} --> */
-#progressBar{
-    /* background: url(../iconz/stop.svg) no-repeat center; */
-    width: 30%;
-    height: 90%;
+#progressBarArea{
+    width: 33%;
+    height: 100%;
+    /* display: inline-block; */
+    background: rgb(248, 9, 9);
     display: inline-block;
-    /* margin-bottom: 15px; */
-    vertical-align: top;
-    padding-top: 1.5%;
+    /* float: left; */
+}
+#emptyProgress{
+    /* background-color: yellow; */
+    height: 80%;
+    margin-left: 15%;
+    margin-top: 8%;
+    /* margin-bottom: ; */
+    background : url(../img/progress_bg.png) no-repeat;
+    /* float: left; */
+}
+#displayProgress{
+    height: 80%;
+    /* margin-left: 5%; */
+    margin-top: 8%;
+    /* margin-bottom: ; */
+    background : url(../img/progress.png) no-repeat;
+    display: block;
+}
+#durationTime{
+    position:absolute;
+	top:0;
+	right:10px;
+	padding:4px 8px;
+	background:#000;
+	border-radius:5px;
     
 }
+
+#pauseButton{
+    background: url(../iconz/pause.svg) no-repeat center;
+    width: 10%;
+    height: 100%;
+    display: inline-block;
+    /* filter: drop-shadow( -5px -5px 5px #000 ); */
+    filter:drop-shadow(2px 0px 4px black);
+}
+#pauseButton.hidden{
+    display: none;
+}
+
 /* play/progress slider */
-#playBar{
+/* #playBar{
     width: 90%;
     vertical-align: top;
-}
+} */
 #fastForward{
     background: url(../iconz/fast-forward.svg) no-repeat center;
     width: 10%;
@@ -248,7 +297,7 @@ footer {
 #volumeBar{
     /* background: url(../iconz/stop.svg) no-repeat center; */
     /* background-color: tomato; */
-    width: 16%;
+    width: 10%;
     height: 100%;
     display: inline-block;
     vertical-align: top;
