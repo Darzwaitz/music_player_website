@@ -69,7 +69,9 @@ section{
     
 }
                                 /* TRACKS SECTION AREA */
-
+/* .float-right{
+    text-align: right;
+} */
 ul li{
 	list-style-type: none;
     line-height:210%;
@@ -87,31 +89,25 @@ ul li{
     border-radius: 4px;
     /* cursor: pointer; */
 }
-#trackNamesA{
+#trackNames{
 	float: left;
 	/* position: relative; */
 	/* display: inline-block; */
-	width: 49.5%;
+	width: 100%;
 	height: 100%;
-	/* background-color: lawngreen; */
+    /* background-color: lawngreen; */
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
-#trackNamesB{
-	float: right;
-	/* position: relative; */
-	/* display: inline-block; */
-	width: 49.5%;
-	height: 100%;
-	opacity: 4;
-	
-	text-decoration: none;
-	/* background-color: rgb(0, 252, 84); */
-	
+.fixListPadding{
+    padding-top: 4%;
 }
 #trackList{
 	/* background-color: crimson; */
 	/* background: url(../img/Rush-making-video-for-grace.jpg);  */
 	/* opacity : .4; */
-	height : 45%;
+	height : 55%;
 	width : 60% ;
 	display: block;
 	margin : 12% auto;
@@ -120,7 +116,6 @@ ul li{
 	position: relative;
     /* z-index: -1; */
     border: none;
-	
 }
 /* pseudo for image div bkgrd */
 #trackList:before{
@@ -184,17 +179,23 @@ footer {
 #trackNumber{
     /* background-color: violet; */
     width: 33%;
-    height: 100%;
-    /* display: inline-block; */
+    height: 50%;
+    display: block;
     float: left;
+    /* position: absolute; */
 }
 #trackTitle{
-    /* background-color: rgb(105, 5, 105); */
+    background-color: rgb(105, 5, 105);
     width: 33%;
     height: 100%;
-    /* display: inline-block; */
-    float: left;
+    display: inline-block;
+    text-align: center;
+    color: tomato;
+  
     
+}
+#trackName{
+    color : rebeccapurple;
 }
 #moreInfo{
     /* background-color: rgb(46, 23, 46); */
@@ -207,7 +208,7 @@ footer {
 #playerCtrls{
     /* background-color: rgb(214, 247, 70); */
     width: 100%;
-    height: 50%;
+    height: 100%;
 }
 #skipBackward{
     background: url(../iconz/back-1.svg) no-repeat center;
@@ -237,6 +238,7 @@ footer {
     background: rgb(248, 9, 9);
     display: inline-block;
     /* float: left; */
+    position: relative;
 }
 #emptyProgress{
     /* background-color: yellow; */
@@ -257,11 +259,11 @@ footer {
 }
 #durationTime{
     position:absolute;
-	top:0;
+	top:40%;
 	right:10px;
 	padding:4px 8px;
 	background:#000;
-	border-radius:5px;
+	border-radius:4px;
     
 }
 
@@ -273,9 +275,9 @@ footer {
     /* filter: drop-shadow( -5px -5px 5px #000 ); */
     filter:drop-shadow(2px 0px 4px black);
 }
-#pauseButton.hidden{
+/* #pauseButton.hidden{
     display: none;
-}
+} */
 
 /* play/progress slider */
 /* #playBar{
