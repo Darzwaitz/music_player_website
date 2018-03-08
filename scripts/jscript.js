@@ -18,17 +18,46 @@ $('#pauseButton').hide();
 
 let audio = new Audio();
 
-$('#trackNames li h2').on('click',function(){ //when title clicked in songlist
-   
-    let songIndexNumber = $(this).parents("li").index();
+
+// $('#playButton').on('click', playTune);
+$('#trackNames li h2').on('click', playTune);
+
+function playTune(){ //when title clicked in songlist
+    if (!audio.currentTime) {
+        $('#durationTime').html('0.00');
+        audio.src = 'media/' + songs[0];
+        let songIndexNumber = songs[0];
+        audio.play();
     
-    console.log(songIndexNumber);
-    let songCurrentTitle = $(this).text(); //get current song title
-    $('#trackTitle h1').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
-    $('#trackNumber h1').text('Track No: ' + (songIndexNumber + 1)); //display current track number on track number area
-    audio.src = 'media/' + songs[songIndexNumber];
+    }
+
+    $('#trackNames li').removeClass('active'); //remove active class from unactive li's
+        songIndexNumber = $(this).parents("li").index();
+        let listClass = $(this).parents("li").addClass('active'); //add active class
+        let songCurrentTitle = $(this).text(); //get current song title
+        $('#trackTitle h1').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
+        $('#trackNumber h1').text('Track No: ' + (songIndexNumber + 1)); //display current track number on track number area
+        
+        audio.src = 'media/' + songs[songIndexNumber];
+        audio.play();
+        $('#playButton').hide();
+        $('#pauseButton').show();
+};
+//play button
+$('#playButton').click(function(){
+    if (!audio.currentTime) {
+        // audio.src = 'media/' + songs[currentSong];
+        // audio.play();
+        playTune();
+        // console.log('reading');
+    }
     audio.play();
-    
+    $('#pauseButton').show();
+    $('#playButton').hide();
 });
-
-
+//pause button
+$('#pauseButton').click(function(){
+    audio.pause();
+    $('#pauseButton').hide();
+    $('#playButton').show();
+});
