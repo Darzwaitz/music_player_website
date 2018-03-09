@@ -82,12 +82,14 @@ ul li{
 /* .trackNames */
 .active{
     font-weight: bold;
-    padding: -1px;
+    /* padding: -1px; */
     /* opacity: .2; */
-    margin: 0;
-    background: rgba(177, 196, 228, .5);
+    /* margin: 0; */
+    background: rgba(177, 196, 228, .9);
     border-radius: 4px;
     /* cursor: pointer; */
+    width:80%;
+    
 }
 #trackNames{
 	float: left;
@@ -100,21 +102,26 @@ ul li{
     -webkit-columns: 2;
     -moz-columns: 2;
 }
+#trackNames Li h2:hover{
+    /* color: red; */
+    font-weight: bold;
+    /* padding: -1px; */
+    /* opacity: .2; */
+    /* margin: 0; */
+    background: rgba(177, 196, 228, .8);
+    border-radius: 4px;
+    width:80%;
+}
 .fixListPadding{
-    padding-top: 4%;
+    /* padding-top: 4%; */
 }
 #trackList{
-	/* background-color: crimson; */
-	/* background: url(../img/Rush-making-video-for-grace.jpg);  */
-	/* opacity : .4; */
+	
 	height : 55%;
 	width : 60% ;
 	display: block;
 	margin : 12% auto;
-	/* margin-left: 10% ; */
-	/* text-align: center ; */
 	position: relative;
-    /* z-index: -1; */
     border: none;
 }
 /* pseudo for image div bkgrd */
