@@ -20,6 +20,7 @@ let audio = new Audio();
 
 
 // $('#playButton').on('click', playTune);
+// $('#trackNames li h2').on('click', playTune);
 $('#trackNames li h2').on('click', playTune);
 
 function playTune(){ //when title clicked in songlist
@@ -40,25 +41,26 @@ function playTune(){ //when title clicked in songlist
         if (!audio.currentTime) {
             $('#durationTime').html('0.00');
             audio.src = 'media/' + songs[0];
-            audio.play();
+        audio.play();
         }
         audio.src = 'media/' + songs[songIndexNumber];
         audio.play();
         $('#playButton').hide();
         $('#pauseButton').show();
         displayDuration();
-        
+        console.log('test' + songIndexNumber);
 };
 
 //play button
 $('#playButton').click(function(){
-    //if no track selected yet, play the first one and display its details
+    //if no track selected yet, play the first one
     if (!audio.currentTime) {
         $('#trackTitle h1').text('Track Title : R30 Overture'); //display current song title on track title area
         $('#trackNumber h1').text('Track No: 01'); //display current track number on track number area
         audio.src = 'media/' + songs[currentSong];
         audio.play();
-        displayDuration();
+        // playTune();
+    displayDuration();
         
     }
     audio.play();
@@ -76,18 +78,20 @@ $('#pauseButton').click(function(){
 
 //next button
 $('#skipForward').click(function(){
-    audio.pause();
-    // let next = $('#trackName li:active').next();
-    // if (next.length == 0) {
-    //     next = $('#trackName li:first-child');
-    // }
-    // playTune(next);
-    // console.log(next);
-    currentSong = currentSong + 1 % songs.length;
-    // audio.play();
-    playTune();
-    displayDuration();
-    console.log(currentSong);
+   audio.pause();
+  let newClass = $('#trackNames li.active').next().addClass('nextOne');
+   $('#trackNames li.nextOne').trigger(playTune());
+
+//    $(this).parents("li").index();
+   let testIndex = $(this).parents("li").index();
+   console.log(testIndex);
+
+//    let testDat = getIt;
+//    console.log(testDat);
+//    function runIt(){
+//     getIt   
+//    }
+    
 });
 
 //time duration
