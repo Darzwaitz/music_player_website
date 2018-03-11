@@ -1,6 +1,5 @@
-//fix globals later
-let currentSong = 0;
-
+let audio;
+//array of all tracks
 let songs =['track_1_rush_cover_R30_Overture.mp3',
             'track_2_rush_cover_Earthshine.mp3',
             'track_3_rush_cover_Subdivisions.mp3',
@@ -14,99 +13,132 @@ let songs =['track_1_rush_cover_R30_Overture.mp3',
             'track_11_rush_cover_Limelight.mp3',
             'track_12_rush_cover_Mission.mp3'];
 
-$('#pauseButton').hide();
 
-let audio = new Audio();
+$('#pauseButton').hide(); //Hide Pause on page load
+	
 
+playTune($('#trackNames li:first-child')); // Play First Song/have ready when page loaded
+	
+function playTune(songPassedIn){
 
-// $('#playButton').on('click', playTune);
-// $('#trackNames li h2').on('click', playTune);
-$('#trackNames li h2').on('click', playTune);
+    let songIndexNumber = songPassedIn.index(); // get current song index number
+    let songCurrentTitle = songPassedIn.text(); //get current song title
 
-function playTune(){ //when title clicked in songlist
+    $('#trackTitle h1').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
+    // console.log('song name: ' + songCurrentTitle);
 
-    $('#trackNames li').removeClass('active'); //remove active class from unactive li's
-        let songIndexNumber = $(this).parents("li").index();
-        let listClass = $(this).parents("li").addClass('active'); //add active class
-        let songCurrentTitle = $(this).text(); //get current song title
-        $('#trackTitle h1').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
-        //add a '0' if track number is less than 10
-        if (songIndexNumber < 9) {
+    //add a '0' if track number is less than 10
+    if (songIndexNumber < 9) {
         $('#trackNumber h1').text('Track No: 0' + (songIndexNumber + 1)); //display current track number on track number area
         }
         else{
         $('#trackNumber h1').text('Track No: ' + (songIndexNumber + 1)); //display current track number on track number area
-        }
-
-        if (!audio.currentTime) {
-            $('#durationTime').html('0.00');
-            audio.src = 'media/' + songs[0];
-        audio.play();
-        }
-        audio.src = 'media/' + songs[songIndexNumber];
-        audio.play();
-        $('#playButton').hide();
-        $('#pauseButton').show();
-        displayDuration();
-        console.log('test' + songIndexNumber);
-};
-
-//play button
-$('#playButton').click(function(){
-    //if no track selected yet, play the first one
-    if (!audio.currentTime) {
-        $('#trackTitle h1').text('Track Title : R30 Overture'); //display current song title on track title area
-        $('#trackNumber h1').text('Track No: 01'); //display current track number on track number area
-        audio.src = 'media/' + songs[currentSong];
-        audio.play();
-        // playTune();
-    displayDuration();
-        
     }
+    	
+    audio = new Audio('media/' + songs[songIndexNumber]); // create new Audio Object
+    // console.log(audio);
+	// if no track playing yet
+	if(!audio.currentTime){
+		$('#durationTime').text('<- Play');
+	}
+	$('#trackNames li').removeClass('active');
+    songPassedIn.addClass('active');
+	displayDuration();
+    
+}
+
+
+//Play Button
+$('#playButton').click(function(){
+
     audio.play();
-    $('#pauseButton').show();
-    $('#playButton').hide();
-    displayDuration();
+    
+	$('#playButton').hide();
+	$('#pauseButton').show();
+    
+	displayDuration();
 });
 
-//pause button
+//Pause Button
 $('#pauseButton').click(function(){
     audio.pause();
-    $('#pauseButton').hide();
-    $('#playButton').show();
+    
+	$('#pauseButton').hide();
+	$('#playButton').show();
 });
 
-//next button
+
+// skip to previous
+$('#skipBackward').click(function(){
+    audio.pause();
+    
+    let prev = $('#trackNames li.active').prev();
+    if (prev.length == 0) {
+        prev = $('#trackNames li:last-child');
+    }
+    playTune(prev);
+
+	audio.play();
+	displayDuration();
+});
+
+// skip to next 
 $('#skipForward').click(function(){
-   audio.pause();
-  let newClass = $('#trackNames li.active').next().addClass('nextOne');
-   $('#trackNames li.nextOne').trigger(playTune());
 
-//    $(this).parents("li").index();
-   let testIndex = $(this).parents("li").index();
-   console.log(testIndex);
-
-//    let testDat = getIt;
-//    console.log(testDat);
-//    function runIt(){
-//     getIt   
-//    }
+    audio.pause();
+    let next = $('#trackNames li.active').next();
+    if (next.length == 0) {
+        next = $('#trackNames li:first-child');
+    }
+    playTune(next);
+	audio.play();
+    displayDuration();
+    $('#pauseButton').show();
+	$('#playButton').hide();
     
 });
 
-//time duration
+// fast forward track() - - - -
+
+//track list Song Click
+$('#trackNames li').click(function () {
+    audio.pause();
+    playTune($(this));
+	$('#playButton').hide();
+	$('#pauseButton').show();
+	$('durationTime').fadeIn(400);
+	audio.play();
+	displayDuration();
+});
+
+// let currentVol;
+
+// Volume Control slider (fix to change volume smoothly)
+$('#volBar').change(function(){
+
+   let currentVol = audio.volume = parseFloat(this.value / 10);
+
+// console.log(currentVol); 
+});
+	
+// track time Duration
 function displayDuration(){
-    $(audio).on('timeupdate' , function(){
-        let secs = parseInt(audio.currentTime % 60);
-        let mins = parseInt((audio.currentTime)/ 60)  % 60;
-        if (secs < 10) {
-            secs = '0' + secs;
+	$(audio).on('timeupdate', function(){
+		
+    let secs = parseInt(audio.currentTime % 60);//Get time in seconds
+    let mins = parseInt((audio.currentTime / 60) % 60);//Get time in minutes
+
+		//Add 0 if seconds less than 10
+		if (secs < 10) {
+			secs = '0' + secs;
         }
-        $('#durationTime').text(mins + '.' + secs);
-        let currentTimeValue = 0;
-        if (audio.currentTime > 0) {
-            currentTimeValue = ((100 / audio.duration) * audio.currentTime);
+        
+		$('#durationTime').html(mins + '.' + secs);	
+		let value = 0;
+		if (audio.currentTime > 0) {
+			value = Math.floor((100 / audio.duration) * audio.currentTime);
         }
-        $('#displayProgress').css('width', currentTimeValue + '%')
-    });
+        
+		$('#displayProgress').css('width',value+'%');
+	});
 }
