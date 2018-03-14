@@ -15,14 +15,13 @@ let songs =['track_1_rush_cover_R30_Overture.mp3',
 
 
 $('#pauseButton').hide(); //Hide Pause on page load
-	
 
-playTune($('#trackNames li:first-child')); // Play First Song/have ready when page loaded
+playTune($('#trackNames li:first-child')); // Play First Song if play clicked / have ready when page loaded
 	
 function playTune(songPassedIn){
 
-    let songIndexNumber = songPassedIn.index(); // get current song index number
-    let songCurrentTitle = songPassedIn.text(); //get current song title
+    let songIndexNumber = songPassedIn.index(), // get current song index number
+        songCurrentTitle = songPassedIn.text(); //get current song title
 
     $('#trackTitle h1').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
     // console.log('song name: ' + songCurrentTitle);
@@ -37,9 +36,11 @@ function playTune(songPassedIn){
     	
     audio = new Audio('media/' + songs[songIndexNumber]); // create new Audio Object
     // console.log(audio);
+    
 	// if no track playing yet
 	if(!audio.currentTime){
-		$('#durationTime').text('<- Play');
+        $('#durationTimeStart').text('<- Play');
+        $('#durationTimeEnd').hide();
 	}
 	$('#trackNames li').removeClass('active');
     songPassedIn.addClass('active');
@@ -56,7 +57,14 @@ $('#playButton').click(function(){
 	$('#playButton').hide();
 	$('#pauseButton').show();
     
-	displayDuration();
+    displayDuration();
+    $('#durationTimeEnd').fadeIn(900);
+    
+    //show play button again when track ended
+    // if (!audio.currentTime) {
+    //     $('#playButton').show();
+	//     $('#pauseButton').hide();
+    // }
 });
 
 //Pause Button
@@ -68,7 +76,7 @@ $('#pauseButton').click(function(){
 });
 
 
-// skip to previous
+// previous skip
 $('#skipBackward').click(function(){
     audio.pause();
     
@@ -79,7 +87,9 @@ $('#skipBackward').click(function(){
     playTune(prev);
 
 	audio.play();
-	displayDuration();
+    displayDuration();
+    $('#durationTimeEnd').fadeIn(2000);
+    
 });
 
 // skip to next 
@@ -93,6 +103,7 @@ $('#skipForward').click(function(){
     playTune(next);
 	audio.play();
     displayDuration();
+    $('#durationTimeEnd').fadeIn(2000);
     $('#pauseButton').show();
 	$('#playButton').hide();
     
@@ -104,11 +115,12 @@ $('#skipForward').click(function(){
 $('#trackNames li').click(function () {
     audio.pause();
     playTune($(this));
-	$('#playButton').hide();
-	$('#pauseButton').show();
-	$('durationTime').fadeIn(400);
 	audio.play();
-	displayDuration();
+    displayDuration();
+    $('#playButton').hide();
+    $('#pauseButton').show();
+    $('#durationTimeEnd').fadeIn(2000);
+    
 });
 
 // let currentVol;
@@ -123,22 +135,39 @@ $('#volBar').change(function(){
 	
 // track time Duration
 function displayDuration(){
+    // count track up display
 	$(audio).on('timeupdate', function(){
 		
-    let secs = parseInt(audio.currentTime % 60);//Get time in seconds
-    let mins = parseInt((audio.currentTime / 60) % 60);//Get time in minutes
+        let secs = parseInt(audio.currentTime % 60),//Get time in seconds as integer
+            mins = parseInt((audio.currentTime / 60) % 60);//Get time in minutes as integer
 
-		//Add 0 if seconds less than 10
-		if (secs < 10) {
-			secs = '0' + secs;
+        //Add 0 if seconds less than 10
+        secs = (secs < 10) ? "0" + secs : secs;
+        $('#durationTimeStart').text(mins + '.' + secs);
+                
+        // use progressing value to update css of element
+        let value = (audio.currentTime > 0) ? ((100 / audio.duration) * audio.currentTime) : '0';
+        $('#displayProgress').css('width', value + '%'); // change progress bar css width with progress value
+
+        //count track down display
+        let duration = parseInt( audio.duration ), // get duration of current track
+            currentTime = parseInt( audio.currentTime ), // get current time of current track
+            secsRemainTotal, 
+            minsRemainTotal;
+
+        let timeRemain = duration - currentTime;
+        secsRemainTotal = timeRemain % 60;
+        minsRemainTotal = Math.floor( timeRemain / 60 ) % 60;
+        
+        secsRemainTotal = secsRemainTotal < 10 ? "0" + secsRemainTotal : secsRemainTotal;
+                
+        $('#durationTimeEnd').text(minsRemainTotal + '.' + secsRemainTotal);
+        
+        // if track ends without continuous play selected - show play button again
+        if (currentTime == duration) {
+            $('#pauseButton').hide();
+	        $('#playButton').show();
         }
         
-		$('#durationTime').html(mins + '.' + secs);	
-		let value = 0;
-		if (audio.currentTime > 0) {
-			value = Math.floor((100 / audio.duration) * audio.currentTime);
-        }
-        
-		$('#displayProgress').css('width',value+'%');
 	});
 }

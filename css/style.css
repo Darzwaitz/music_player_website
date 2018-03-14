@@ -54,11 +54,6 @@ nav ul li {
      margin-top :1.5% ;
 }
 
-/* main {
-	width : 100%;
-	height: 1000px ;
-	background-color: saddlebrown;
-} */
 section{
 	width : 100%;
 	height:125% ;
@@ -69,17 +64,14 @@ section{
     
 }
                                 /* TRACKS SECTION AREA */
-/* .float-right{
-    text-align: right;
-} */
+
 ul li{
 	list-style-type: none;
     line-height:210%;
     cursor: pointer;
 
 }
-    /* active track style */
-/* .trackNames */
+         /* active track style */
 .active{
     font-weight: bold;
     /* padding: -1px; */
@@ -93,8 +85,6 @@ ul li{
 }
 #trackNames{
 	float: left;
-	/* position: relative; */
-	/* display: inline-block; */
 	width: 100%;
 	height: 100%;
     /* background-color: lawngreen; */
@@ -103,19 +93,13 @@ ul li{
     -moz-columns: 2;
 }
 #trackNames Li h2:hover{
-    /* color: red; */
     font-weight: bold;
-    /* padding: -1px; */
-    /* opacity: .2; */
-    /* margin: 0; */
     /* background: rgba(177, 196, 228, .8); */
     background:rgba(255, 255, 255, 0.8);
     border-radius: 4px;
     width:80%;
 }
-.fixListPadding{
-    /* padding-top: 4%; */
-}
+
 #trackList{
 	
 	height : 55%;
@@ -129,8 +113,6 @@ ul li{
 #trackList:before{
     position: absolute;
     background: url(../img/Rush-making-video-for-grace.jpg) 42%;
-    /* padding-bottom: 140px; */
-    /* display: block; */
     box-shadow: 0 2px 14px 14px white inset;
     border-radius: 4px;
     top:0;
@@ -144,7 +126,6 @@ ul li{
 }
                                 /* FOOTER */
 footer {
-	/* position: fixed; */
 	position: relative;
     left: 0;
 	bottom: 0;
@@ -172,6 +153,10 @@ footer {
 	background-color: rgb(255, 255, 255);
     /* opacity: .4; */
     margin: 0;
+    /* shadow top of div */
+    box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);
+    -moz-box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);    
 }
 /* top divz */
 #playerTextArea{
@@ -193,7 +178,7 @@ footer {
     /* position: absolute; */
 }
 #trackTitle{
-    background-color: rgb(105, 5, 105);
+    /* background-color: rgb(105, 5, 105); */
     width: 33%;
     height: 100%;
     display: inline-block;
@@ -243,7 +228,7 @@ footer {
     width: 33%;
     height: 100%;
     /* display: inline-block; */
-    background: rgb(248, 9, 9);
+    /* background: rgb(248, 9, 9); */
     display: inline-block;
     /* float: left; */
     position: relative;
@@ -253,28 +238,37 @@ footer {
     height: 80%;
     margin-left: 15%;
     margin-top: 8%;
-    /* margin-bottom: ; */
     background : url(../img/progress_bg.png) no-repeat;
-    /* float: left; */
+    background-size: 80% 20%;
+  
 }
 #displayProgress{
     height: 80%;
-    /* margin-left: 5%; */
-    margin-top: 8%;
-    /* margin-bottom: ; */
+    margin-top: -2%;
     background : url(../img/progress.png) no-repeat;
+    background-size: 80% 28%;
     display: block;
-    /* width: 10%; */
+    width: 0%;
 }
-#durationTime{
+#durationTimeStart{
     position:absolute;
-	top:40%;
-	/* right:10px; */
-	padding:4px 8px;
+	top:30%;
+	left:-2%;
+	padding: 2px 4px 0px;
 	background:#000;
     border-radius:4px;
     color: white;
     
+}
+#durationTimeEnd{
+    position:absolute;
+	top:30%;
+	left:88%;
+	padding: 2px 4px 0px;
+	background:#000;
+    border-radius:4px;
+    color: white;
+    float: right;
 }
 
 #pauseButton{
@@ -285,15 +279,7 @@ footer {
     /* filter: drop-shadow( -5px -5px 5px #000 ); */
     filter:drop-shadow(2px 0px 4px black);
 }
-/* #pauseButton.hidden{
-    display: none;
-} */
 
-/* play/progress slider */
-/* #playBar{
-    width: 90%;
-    vertical-align: top;
-} */
 #fastForward{
     background: url(../iconz/fast-forward.svg) no-repeat center;
     width: 10%;
@@ -307,7 +293,6 @@ footer {
     display: inline-block;
 }
 #volumeBar{
-    /* background: url(../iconz/stop.svg) no-repeat center; */
     /* background-color: tomato; */
     width: 10%;
     height: 100%;
