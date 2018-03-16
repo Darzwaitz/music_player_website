@@ -19,7 +19,7 @@
         </div>
     <div id="navLinks">
         <ul>
-          <li><a href="about.html">About</a></li>
+          <li id="about"><a href="#">About</a></li>
           <li class="current"><a href="index.html">Home</a></li>
           <li><a href="services.html">Contact</a></li>
         </ul>  
@@ -39,7 +39,7 @@
                         <li><h2>Dreamline</h2></li>
                         <li><h2>Manhattan Project</h2></li>
                         
-                        <li class="fixListPadding"><h2>Marathon</h2></li>
+                        <li><h2>Marathon</h2></li>
                         <li><h2>Heart Full of Soul</h2></li>
                         <li><h2>Bravado</h2></li>
                         <li><h2>Closer to the Heart</h2></li>
@@ -49,6 +49,8 @@
                 <!--</div>  end NamesB -->
             
          </div> <!-- end trackList -->
+
+         <div id="about_Content" class="addZ-Index" >Here</div>
 
 
        <footer>
@@ -93,7 +95,8 @@
           </div> <!--end progress bar div-->
         <div id="fastForward"></div>
         <div id="skipForward"></div>
-        <div id="volumeBar">Vol<input id="volBar" type="range" min="0" max="11"/></div>
+        <div id="volumeBar"><div id="volIcon"></div>
+            <input id="volBar" type="range" min="0" max="11"/></div> <!-- end volumeBar -->
     
     </div> <!-- END playerCtrls -->
 </div> <!-- END playerArea -->

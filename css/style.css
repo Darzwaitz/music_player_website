@@ -100,17 +100,32 @@ ul li{
     width:80%;
 }
 
-#trackList{
-	
+#trackList,#about_Content{
+	position: relative; /* needs to be set for z-index to work */
 	height : 55%;
 	width : 60% ;
 	display: block;
 	margin : 12% auto;
 	position: relative;
     border: none;
+    background-color: lightblue;
+    z-index: 1;
 }
+/* fix postioning on page resize */
+#about_Content{
+    /* position: relative; */
+    background-color: rgb(253, 10, 10);
+    /* z-index: 1; */
+    top: -73.5%;
+    z-index: -1;
+    
+}
+.addZ-Index{
+    z-index: 2;
+}
+        /* !!!!! PUT BACK AFTER TESTING DIV CONTENT */
 /* pseudo for image div bkgrd */
-#trackList:before{
+/* #trackList:before{
     position: absolute;
     background: url(../img/Rush-making-video-for-grace.jpg) 42%;
     box-shadow: 0 2px 14px 14px white inset;
@@ -123,7 +138,7 @@ ul li{
     opacity: .3;
     z-index: -1;
     /* margin-bottom: 15%; */
-}
+/* } */
                                 /* FOOTER */
 footer {
 	position: relative;
@@ -292,7 +307,10 @@ footer {
     height: 100%;
     display: inline-block;
 }
+
+/* volume bar area */
 #volumeBar{
+    position: relative;
     /* background-color: tomato; */
     width: 10%;
     height: 100%;
@@ -300,10 +318,33 @@ footer {
     vertical-align: top;
     padding-top: 1.5%;
     
+    
 }
-/* volume bar slider */
-#volBar{
-    width: 82%;
+#volIcon{
+    position: absolute;
+    /* background-color: rgb(34, 250, 6); */
+    height: 24%;
+    width: 24%;
+    top: 20%;
+    background: url(../iconz/volume_icon.svg) no-repeat center;
+    
+}
+input#volBar{
+    width: 65%;
     vertical-align: top;
     float: right;
+    background-color:rgba(212, 217, 222, 0.5);
+    border-radius: 8px;
+    outline-style:none; /*take off focus colour*/
+    border-color: rgb(212, 217, 222);
+    border-style: solid;
+    border-width: thin;
+    -webkit-appearance: none !important; 
+}
+
+input#volBar::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: url(../img/knob.png) no-repeat;
+    height:12px;
+    width:12px;
 }

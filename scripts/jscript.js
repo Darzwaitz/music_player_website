@@ -60,11 +60,9 @@ $('#playButton').click(function(){
     displayDuration();
     $('#durationTimeEnd').fadeIn(900);
     
-    //show play button again when track ended
-    // if (!audio.currentTime) {
-    //     $('#playButton').show();
-	//     $('#pauseButton').hide();
-    // }
+    //normalize play speed if reverse or fast forward clicked
+    audio.playbackRate = 1.0;
+
 });
 
 //Pause Button
@@ -89,7 +87,17 @@ $('#skipBackward').click(function(){
 	audio.play();
     displayDuration();
     $('#durationTimeEnd').fadeIn(2000);
+    $('#pauseButton').show();
+	$('#playButton').hide();
     
+});
+//rewind
+$('#rewind').click(function(){
+    audio.playbackRate -= 0.9;
+    
+    $('#pauseButton').hide();
+	$('#playButton').show();
+    console.log('clickd again');
 });
 
 // skip to next 
@@ -109,8 +117,13 @@ $('#skipForward').click(function(){
     
 });
 
-// fast forward track() - - - -
-
+// fast forward track
+$('#fastForward').click(function(){
+    audio.playbackRate += 10;
+    
+    $('#pauseButton').hide();
+	$('#playButton').show();
+});
 //track list Song Click
 $('#trackNames li').click(function () {
     audio.pause();
@@ -170,4 +183,20 @@ function displayDuration(){
         }
         
 	});
-}
+};
+// XMLHttpRequest to insert about page
+$('#about').click( function insertAbout_Content(){
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "testRequest.html");
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200 ) {
+                let newContent_About = document.getElementById('about_Content');
+                // let newContent_About = $('#trackNames');
+                newContent_About.innerHTML = xhr.responseText;
+                // console.log(xhr.responseText);
+        }
+    }
+    xhr.send(null);
+});
+// insertAbout_Content();
