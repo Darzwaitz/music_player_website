@@ -17,7 +17,7 @@ body{
 }
 /* * { border: 1px solid black; } */
                                 /* FONTZ */
-h1{
+h1, h2{
    text-align: center;
    /* padding-bottom: 10px; */
    vertical-align: middle;
@@ -106,26 +106,32 @@ ul li{
 	width : 60% ;
 	display: block;
 	margin : 12% auto;
-	position: relative;
     border: none;
-    background-color: lightblue;
-    z-index: 1;
+    /* background-color: lightblue; */
+    /* z-index: 1; */
 }
 /* fix postioning on page resize */
 #about_Content{
-    /* position: relative; */
-    background-color: rgb(253, 10, 10);
-    /* z-index: 1; */
-    top: -73.5%;
-    z-index: -1;
-    
+    /* background-color: rgb(253, 10, 10); */
+    /* top: -73.5%; */
+    position: relative; /* needs to be set for z-index to work */
+	height : 55%;
+	width : 60% ;
+	display: block;
+	margin : 12% auto;
+    border: none;
 }
-.addZ-Index{
-    z-index: 2;
+.addIndexMinusOne{
+    z-index: -1;
+    display: none !important;
+
+}
+.addIndexOne{
+    z-index: 1;
 }
         /* !!!!! PUT BACK AFTER TESTING DIV CONTENT */
 /* pseudo for image div bkgrd */
-/* #trackList:before{
+#trackList:before{
     position: absolute;
     background: url(../img/Rush-making-video-for-grace.jpg) 42%;
     box-shadow: 0 2px 14px 14px white inset;
@@ -138,7 +144,7 @@ ul li{
     opacity: .3;
     z-index: -1;
     /* margin-bottom: 15%; */
-/* } */
+ }
                                 /* FOOTER */
 footer {
 	position: relative;
@@ -171,13 +177,16 @@ footer {
     /* shadow top of div */
     box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);
     -moz-box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);
-    -webkit-box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);    
+    -webkit-box-shadow: inset 0 20px 10px -20px rgba(0,0,0,0.3);  
+    /* position: relative; */
+    z-index: 4;  
 }
 /* top divz */
 #playerTextArea{
-    /* background-color: rgb(40, 245, 13); */
+    /* background-color: rgb(255, 255, 255); */
     width: 100%;
     height: 50%;
+    
 }
 #playerTextArea h1{
     /* margin : 0; */
@@ -341,7 +350,7 @@ input#volBar{
     border-width: thin;
     -webkit-appearance: none !important; 
 }
-
+ /* replace slider img */
 input#volBar::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background: url(../img/knob.png) no-repeat;

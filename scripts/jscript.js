@@ -184,19 +184,54 @@ function displayDuration(){
         
 	});
 };
-// XMLHttpRequest to insert about page
+///////////////////Navigation////////////////////
+
+// XMLHttpRequest to insert about div
 $('#about').click( function insertAbout_Content(){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "testRequest.html");
+    xhr.open("GET", "about.html");
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200 ) {
-                let newContent_About = document.getElementById('about_Content');
-                // let newContent_About = $('#trackNames');
-                newContent_About.innerHTML = xhr.responseText;
-                // console.log(xhr.responseText);
+                let newContent_About = document.getElementById('about_Content'); //get about div
+                let content_Home = document.getElementById('trackList'); //get home div
+
+                newContent_About.classList.add("addIndexOne"); //add z-index 1 to about
+                content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
+                newContent_About.classList.remove("addIndexMinusOne"); //add z-index 1 to about
+                content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
+
+                newContent_About.innerHTML = xhr.responseText; // populate about div
         }
     }
     xhr.send(null);
 });
-// insertAbout_Content();
+// return to home div
+$('#home').click( function returnAbout_Content(){
+    $('#about_Content').addClass('addIndexMinusOne');
+    $('#about_Content').removeClass('addIndexOne');
+    
+    $('#trackList').addClass('addIndexOne');
+    $('#trackList').removeClass('addIndexMinusOne');
+});
+
+// XMLHttpRequest to insert contact div
+// $('#contact').click( function insertContact_Content(){
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("GET", "contact.html");
+
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState === 4 && xhr.status === 200 ) {
+//                 let newContact_Content = document.getElementById('contact_Content'); //get content div
+//                 let content_Home = document.getElementById('newContact_Content'); //get home div
+
+//                 newContact_Content.classList.add("addIndexOne"); //add z-index 1 to about
+//                 content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
+//                 newContent_About.classList.remove("addIndexMinusOne"); //add z-index 1 to about
+//                 content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
+
+//                 newContent_About.innerHTML = xhr.responseText; // populate about div
+//         }
+//     }
+//     xhr.send(null);
+// });
