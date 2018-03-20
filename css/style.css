@@ -17,13 +17,14 @@ body{
 }
 /* * { border: 1px solid black; } */
                                 /* FONTZ */
-h1, h2{
+h1{
    text-align: center;
    /* padding-bottom: 10px; */
    vertical-align: middle;
 }                                
 
                                 /* TOP NAV AREA*/
+                               
 
 /* header{} */
 nav ul li {
@@ -32,7 +33,9 @@ nav ul li {
     /* size: 90px; */
     font-size: 25px;
 	text-decoration: none;
-	display: inline-block;
+    display: inline-block;
+    color: powderblue;
+    margin-right: 8px;
 }
 
 #navLinks {
@@ -54,6 +57,8 @@ nav ul li {
      margin-top :1.5% ;
 }
 
+                                /* TRACKS SECTION AREA */
+
 section{
 	width : 100%;
 	height:125% ;
@@ -63,13 +68,13 @@ section{
     border: none;
     
 }
-                                /* TRACKS SECTION AREA */
+ 
 
 ul li{
 	list-style-type: none;
     line-height:210%;
     cursor: pointer;
-
+/* color: red; */
 }
          /* active track style */
 .active{
@@ -100,7 +105,7 @@ ul li{
     width:80%;
 }
 
-#trackList,#about_Content{
+#trackList, #about_Content, #contact_Content{
 	position: relative; /* needs to be set for z-index to work */
 	height : 55%;
 	width : 60% ;
@@ -111,16 +116,16 @@ ul li{
     /* z-index: 1; */
 }
 /* fix postioning on page resize */
-#about_Content{
+/* #about_Content{
     /* background-color: rgb(253, 10, 10); */
     /* top: -73.5%; */
-    position: relative; /* needs to be set for z-index to work */
-	height : 55%;
+    /* position: relative; needs to be set for z-index to work */
+	/* height : 55%;
 	width : 60% ;
 	display: block;
 	margin : 12% auto;
-    border: none;
-}
+    border: none; */
+/* }  */
 .addIndexMinusOne{
     z-index: -1;
     display: none !important;
@@ -356,4 +361,12 @@ input#volBar::-webkit-slider-thumb {
     background: url(../img/knob.png) no-repeat;
     height:12px;
     width:12px;
+}
+
+.navActive{
+    z-index: 2;
+}
+.navInActive{
+    /* z-index: -1; */
+    display: none;
 }

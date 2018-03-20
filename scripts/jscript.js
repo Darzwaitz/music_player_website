@@ -186,6 +186,10 @@ function displayDuration(){
 };
 ///////////////////Navigation////////////////////
 
+// foreach li element in nav - add z - index of 1 to current 
+// remove z index from others
+// add z - index -1 to others and display none
+
 // XMLHttpRequest to insert about div
 $('#about').click( function insertAbout_Content(){
     let xhr = new XMLHttpRequest();
@@ -197,8 +201,9 @@ $('#about').click( function insertAbout_Content(){
                 let content_Home = document.getElementById('trackList'); //get home div
 
                 newContent_About.classList.add("addIndexOne"); //add z-index 1 to about
-                content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
                 newContent_About.classList.remove("addIndexMinusOne"); //add z-index 1 to about
+
+                content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
                 content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
 
                 newContent_About.innerHTML = xhr.responseText; // populate about div
@@ -208,30 +213,31 @@ $('#about').click( function insertAbout_Content(){
 });
 // return to home div
 $('#home').click( function returnAbout_Content(){
-    $('#about_Content').addClass('addIndexMinusOne');
-    $('#about_Content').removeClass('addIndexOne');
+    // $('#about_Content').addClass('navInActive');
+    // $('#about_Content').removeClass('addIndexOne');
     
-    $('#trackList').addClass('addIndexOne');
-    $('#trackList').removeClass('addIndexMinusOne');
+    // $('#trackList').addClass('navActive');
+    // $('#trackList').removeClass('addIndexMinusOne');
 });
 
 // XMLHttpRequest to insert contact div
-// $('#contact').click( function insertContact_Content(){
-//     let xhr = new XMLHttpRequest();
-//     xhr.open("GET", "contact.html");
+$('#contact').click( function insertContact_Content(){
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "contact.html");
 
-//     xhr.onreadystatechange = function() {
-//         if (xhr.readyState === 4 && xhr.status === 200 ) {
-//                 let newContact_Content = document.getElementById('contact_Content'); //get content div
-//                 let content_Home = document.getElementById('newContact_Content'); //get home div
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200 ) {
+                let newContent_Contact = document.getElementById('contact_Content'); //get content div
+                let content_Home = document.getElementById('trackList'); //get home div
 
-//                 newContact_Content.classList.add("addIndexOne"); //add z-index 1 to about
-//                 content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
-//                 newContent_About.classList.remove("addIndexMinusOne"); //add z-index 1 to about
-//                 content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
+                newContent_Contact.classList.add("addIndexOne"); //add z-index 1 to about
+                content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
+                newContent_Contact.classList.remove("addIndexMinusOne"); //add z-index 1 to about
+                content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
 
-//                 newContent_About.innerHTML = xhr.responseText; // populate about div
-//         }
-//     }
-//     xhr.send(null);
-// });
+                newContent_Contact.innerHTML = xhr.responseText; // populate content div
+                // newContent_Contact.innerHTML = 'test Now'; // populate content div
+        }
+    }
+    xhr.send(null);
+});
