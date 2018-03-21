@@ -186,58 +186,117 @@ function displayDuration(){
 };
 ///////////////////Navigation////////////////////
 
-// foreach li element in nav - add z - index of 1 to current 
-// remove z index from others
-// add z - index -1 to others and display none
+// XMLHttpRequests to insert data on first click of each nav link
+$('#about').on('click' , insertAbout_Content);
+$('#videos').on('click' , insertVideo_Content);
+$('#contact').on('click' , insertContact_Content);
 
-// XMLHttpRequest to insert about div
-$('#about').click( function insertAbout_Content(){
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "about.html");
+function re_InsertAbout_Content(){
+    //get other divs and add display none to hide
+    $('#trackList, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200 ) {
-                let newContent_About = document.getElementById('about_Content'); //get about div
-                let content_Home = document.getElementById('trackList'); //get home div
+    //remove display none and add display block to show this div
+    $('#about_Content').addClass('displayBlock').removeClass('displayNone');
 
-                newContent_About.classList.add("addIndexOne"); //add z-index 1 to about
-                newContent_About.classList.remove("addIndexMinusOne"); //add z-index 1 to about
+}
 
-                content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
-                content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
+function insertAbout_Content(){
 
-                newContent_About.innerHTML = xhr.responseText; // populate about div
-        }
-    }
-    xhr.send(null);
-});
-// return to home div
-$('#home').click( function returnAbout_Content(){
-    // $('#about_Content').addClass('navInActive');
-    // $('#about_Content').removeClass('addIndexOne');
+    //get other divs and add display none to hide / remove display block
+    $('#trackList, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
     
-    // $('#trackList').addClass('navActive');
-    // $('#trackList').removeClass('addIndexMinusOne');
-});
+    //remove display none and add display block to show this div
+    $('#about_Content').addClass('displayBlock').removeClass('displayNone');
+    
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "about.html");
 
-// XMLHttpRequest to insert contact div
-$('#contact').click( function insertContact_Content(){
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "contact.html");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200 ) {
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200 ) {
-                let newContent_Contact = document.getElementById('contact_Content'); //get content div
-                let content_Home = document.getElementById('trackList'); //get home div
-
-                newContent_Contact.classList.add("addIndexOne"); //add z-index 1 to about
-                content_Home.classList.add("addIndexMinusOne"); //add z-index -1 to home
-                newContent_Contact.classList.remove("addIndexMinusOne"); //add z-index 1 to about
-                content_Home.classList.remove("addIndexOne"); //add z-index -1 to home
-
-                newContent_Contact.innerHTML = xhr.responseText; // populate content div
-                // newContent_Contact.innerHTML = 'test Now'; // populate content div
+                    let newContent_About = document.getElementById('about_Content'); //get about div
+                    newContent_About.innerHTML = xhr.responseText; // populate about div
+            }
         }
-    }
-    xhr.send(null);
+        xhr.send(null);
+        //remove XMLHttpRequest after clicking once and add new event to reshow data without downloading again
+        $('#about').off('click' , insertAbout_Content).on('click' , re_InsertAbout_Content);
+     
+}; //end about functions
+
+//video nav functions
+function re_InsertVideo_Content(){
+    //get other divs and add display none to hide
+    $('#about_Content, #trackList, #contact_Content').addClass('displayNone').removeClass('displayBlock');
+
+    //remove display none and add display block to show this div
+    $('#videos_Content').addClass('displayBlock').removeClass('displayNone');
+
+}
+
+function insertVideo_Content(){
+
+    //get other divs and add display none to hide / remove display block
+    $('#about_Content, #trackList, #contact_Content').addClass('displayNone').removeClass('displayBlock');
+    
+    //remove display none and add display block to show this div
+    $('#videos_Content').addClass('displayBlock').removeClass('displayNone');
+    
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "videos.html");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200 ) {
+
+                    let newContent_Videos = document.getElementById('videos_Content'); //get about div
+                    newContent_Videos.innerHTML = xhr.responseText; // populate about div
+            }
+        }
+        xhr.send(null);
+
+        //remove XMLHttpRequest after clicking once and add new listener 
+        $('#videos').off('click' , insertVideo_Content).on('click' , re_InsertVideo_Content);
+     
+}; //end video nav functions
+
+//contact nav functions
+function re_InsertContact_Content(){
+    //get other divs and add display none to hide
+    $('#about_Content, #trackList, #videos_Content').addClass('displayNone').removeClass('displayBlock');
+
+    //remove display none and add display block to show this div
+    $('#contact_Content').addClass('displayBlock').removeClass('displayNone');
+}
+
+function insertContact_Content(){
+
+    //get other divs and add display none to hide / remove display block
+    $('#about_Content, #trackList, #videos_Content').addClass('displayNone').removeClass('displayBlock');
+    
+    //remove display none and add display block to show this div
+    $('#contact_Content').addClass('displayBlock').removeClass('displayNone');
+    
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "contact.html");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200 ) {
+
+                    let newContent_Contact = document.getElementById('contact_Content'); //get about div
+                    newContent_Contact.innerHTML = xhr.responseText; // populate about div
+            }
+        }
+        xhr.send(null);
+
+        //remove XMLHttpRequest after clicking once and add new listener 
+        $('#contact').off('click' , insertContact_Content).on('click' , re_InsertContact_Content);
+     
+}; //end contact nav functions
+
+// return to home div
+$('#home').click( function re_InsertHome_Content(){
+    $('#about_Content, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
+    $('#trackList').removeClass('displayNone');
+   
 });
+

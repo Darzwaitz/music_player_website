@@ -105,38 +105,31 @@ ul li{
     width:80%;
 }
 
-#trackList, #about_Content, #contact_Content{
+#trackList, #about_Content, #contact_Content, #videos_Content{
 	position: relative; /* needs to be set for z-index to work */
 	height : 55%;
 	width : 60% ;
-	display: block;
 	margin : 12% auto;
     border: none;
     /* background-color: lightblue; */
-    /* z-index: 1; */
 }
-/* fix postioning on page resize */
-/* #about_Content{
-    /* background-color: rgb(253, 10, 10); */
-    /* top: -73.5%; */
-    /* position: relative; needs to be set for z-index to work */
-	/* height : 55%;
-	width : 60% ;
-	display: block;
-	margin : 12% auto;
-    border: none; */
-/* }  */
-.addIndexMinusOne{
-    z-index: -1;
-    display: none !important;
 
+.displayNone{
+    display: none !important;
+    
 }
-.addIndexOne{
-    z-index: 1;
+.displayBlock{
+    display: block !important;
+    
 }
+
         /* !!!!! PUT BACK AFTER TESTING DIV CONTENT */
-/* pseudo for image div bkgrd */
-#trackList:before{
+/* pseudo for image divs bkgrd */
+#trackList:before, 
+ #about_Content:before,
+ #contact_Content:before,
+ #videos_Content:before
+ {
     position: absolute;
     background: url(../img/Rush-making-video-for-grace.jpg) 42%;
     box-shadow: 0 2px 14px 14px white inset;
@@ -150,6 +143,7 @@ ul li{
     z-index: -1;
     /* margin-bottom: 15%; */
  }
+
                                 /* FOOTER */
 footer {
 	position: relative;
