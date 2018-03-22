@@ -1,3 +1,5 @@
+// (function() {
+
 let audio;
 //array of all tracks
 let songs =['track_1_rush_cover_R30_Overture.mp3',
@@ -187,116 +189,42 @@ function displayDuration(){
 ///////////////////Navigation////////////////////
 
 // XMLHttpRequests to insert data on first click of each nav link
-$('#about').on('click' , insertAbout_Content);
-$('#videos').on('click' , insertVideo_Content);
-$('#contact').on('click' , insertContact_Content);
+$('#about, #videos, #contact').on('click' , insert_Content);
+$('#home').on('click' , re_Insert_Content);
 
-function re_InsertAbout_Content(){
+function re_Insert_Content(){
+    let currentId = this.id;
+    console.log('re-pop test iz : ' + currentId);
     //get other divs and add display none to hide
-    $('#trackList, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
+    $('#about_Content, #home_Content, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
 
     //remove display none and add display block to show this div
-    $('#about_Content').addClass('displayBlock').removeClass('displayNone');
+    $('#' + currentId + '_Content').addClass('displayBlock').removeClass('displayNone');
 
 }
 
-function insertAbout_Content(){
-
+//main nav first click insert function
+function insert_Content(){
+    let currentId = this.id;
+    console.log('test iz : ' + currentId);
     //get other divs and add display none to hide / remove display block
-    $('#trackList, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
+    $('#home_Content, #about_Content, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
     
     //remove display none and add display block to show this div
-    $('#about_Content').addClass('displayBlock').removeClass('displayNone');
+    $('#' + currentId + '_Content').addClass('displayBlock').removeClass('displayNone');
     
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", "about.html");
+        xhr.open("GET", currentId + ".html");
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200 ) {
 
-                    let newContent_About = document.getElementById('about_Content'); //get about div
-                    newContent_About.innerHTML = xhr.responseText; // populate about div
+                    let newContent = document.getElementById(currentId + '_Content'); //get about div
+                    newContent.innerHTML = xhr.responseText; // populate about div
             }
         }
         xhr.send(null);
         //remove XMLHttpRequest after clicking once and add new event to reshow data without downloading again
-        $('#about').off('click' , insertAbout_Content).on('click' , re_InsertAbout_Content);
+        $('#' + currentId).off('click' , insert_Content).on('click' , re_Insert_Content);
      
 }; //end about functions
-
-//video nav functions
-function re_InsertVideo_Content(){
-    //get other divs and add display none to hide
-    $('#about_Content, #trackList, #contact_Content').addClass('displayNone').removeClass('displayBlock');
-
-    //remove display none and add display block to show this div
-    $('#videos_Content').addClass('displayBlock').removeClass('displayNone');
-
-}
-
-function insertVideo_Content(){
-
-    //get other divs and add display none to hide / remove display block
-    $('#about_Content, #trackList, #contact_Content').addClass('displayNone').removeClass('displayBlock');
-    
-    //remove display none and add display block to show this div
-    $('#videos_Content').addClass('displayBlock').removeClass('displayNone');
-    
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "videos.html");
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200 ) {
-
-                    let newContent_Videos = document.getElementById('videos_Content'); //get about div
-                    newContent_Videos.innerHTML = xhr.responseText; // populate about div
-            }
-        }
-        xhr.send(null);
-
-        //remove XMLHttpRequest after clicking once and add new listener 
-        $('#videos').off('click' , insertVideo_Content).on('click' , re_InsertVideo_Content);
-     
-}; //end video nav functions
-
-//contact nav functions
-function re_InsertContact_Content(){
-    //get other divs and add display none to hide
-    $('#about_Content, #trackList, #videos_Content').addClass('displayNone').removeClass('displayBlock');
-
-    //remove display none and add display block to show this div
-    $('#contact_Content').addClass('displayBlock').removeClass('displayNone');
-}
-
-function insertContact_Content(){
-
-    //get other divs and add display none to hide / remove display block
-    $('#about_Content, #trackList, #videos_Content').addClass('displayNone').removeClass('displayBlock');
-    
-    //remove display none and add display block to show this div
-    $('#contact_Content').addClass('displayBlock').removeClass('displayNone');
-    
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "contact.html");
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200 ) {
-
-                    let newContent_Contact = document.getElementById('contact_Content'); //get about div
-                    newContent_Contact.innerHTML = xhr.responseText; // populate about div
-            }
-        }
-        xhr.send(null);
-
-        //remove XMLHttpRequest after clicking once and add new listener 
-        $('#contact').off('click' , insertContact_Content).on('click' , re_InsertContact_Content);
-     
-}; //end contact nav functions
-
-// return to home div
-$('#home').click( function re_InsertHome_Content(){
-    $('#about_Content, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
-    $('#trackList').removeClass('displayNone');
-   
-});
-
