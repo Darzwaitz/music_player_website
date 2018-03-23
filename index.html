@@ -30,7 +30,7 @@
 
 <main>
      <section>
-         <div id="home_Content" class="contentDiv">
+         <div id="home_Content" class="displayNone contentDiv">
                 <ul id="trackNames" >
                         <li><h2>R30 Overture</h2></li>
                         <li><h2>Earthshine</h2></li>
@@ -50,7 +50,24 @@
          </div> <!-- end trackList -->
          <div id="about_Content" class="displayNone contentDiv">about</div>
          <div id="contact_Content" class="displayNone contentDiv">contact</div>
-         <div id="videos_Content" class="displayNone contentDiv">videos</div>
+         <!-- <div id="videos_Content" class="displayNone contentDiv">videos</div> -->
+
+         <!-- temp testing code -->
+         <div id="videos_Content" class="contentDiv">
+                <div class="vid-container">
+                    <iframe id="vid_frame" width="80%" height="300" src="https://www.youtube.com/embed/uwCv3utimos" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+         </div> <!--end video content-->
+         <div class="vid-item" onClick="document.getElementById('vid_frame').src='https://www.youtube.com/watch?v=-7yWVUmBrD4?autoplay=1'">
+                <div class="thumb">
+                    <img src="http://img.youtube.com/vi/-7yWVUmBrD4/2.jpg">
+                </div>
+                <div class="desc">
+                        Earthshine by Rockhouse
+                </div>
+              </div><!-- End vid-item -->
+              
+
 
 
        <footer>
@@ -68,12 +85,10 @@
     <!-- top div in player -->
     <div id="playerTextArea">
         <div id="trackNumber"><h1>Track NO: </h1></div> <!--Track NO: 01 -->
-        <div id="trackTitle"><h1>Track Title is test</h1>
-            <!-- update stylez of Track Title later-->
-            <!-- <div id="trackName">test text</div>
-        </div> more info-->
-        </div>
-        <div id="moreInfo"><h1>more info</h1></div> 
+        <div id="trackTitle"><h1>Track Title is test</h1></div> <!-- end trackTitle-->
+        <div id="moreInfo"><h1>more info</h1></div> <!-- more info-->
+    </div><!-- end player text area -->
+    
         
     
     <!-- bottom div in player -->

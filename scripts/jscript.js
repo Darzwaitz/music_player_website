@@ -37,13 +37,14 @@ function playTune(songPassedIn){
     }
     	
     audio = new Audio('media/' + songs[songIndexNumber]); // create new Audio Object
-    // console.log(audio);
     
 	// if no track playing yet
 	if(!audio.currentTime){
         $('#durationTimeStart').text('<- Play');
         $('#durationTimeEnd').hide();
-	}
+    }
+    
+    //add & remove active class of track
 	$('#trackNames li').removeClass('active');
     songPassedIn.addClass('active');
 	displayDuration();

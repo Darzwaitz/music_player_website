@@ -1,3 +1,24 @@
-<h1>This will be the Contact page</h1> <br>
-<h2>..make a note of what will go here!</h2><br>
-<h3>The contact Form etc.</h3>
+<!-- <br><br><br><h1>This will be the Contact page</h1> <br>
+<h2>..make a note of what will go here!<br>
+The contact Form etc.</h2> -->
+
+<div class="formy">
+        <form action="feedback.php" method="post" >
+            <table border="0" cellpadding="20" cellspacing="">
+                <tr>
+                    <th class="formname"><label for="tswname" ><h3>Name</h3></label><input type="text" name="fullname" id="tswname" size="45" placeholder=" Please enter your name"required></th>
+                    <th class="formemailadd"><label for="tswemail"><h3>Email address</label></h3><input type="text" id="tswemail" name="email" size="45" placeholder=" Please enter your Email address" required></th>
+                </tr>
+                <tr>
+                    <th class="formcommentz" colspan="2"><label for="tswcomments"><h3>Commentz</label></h3>
+                    <textarea rows="6" cols="65" name="comments" id="tswcomments" placeholder=" Whats on your mind?" required></textarea>
+                    </th>
+                </tr>
+                <tr>
+                <td style="padding : 8px" colspan="3">
+                    <input type="submit" value="Click to Send!" class="FeedBack"  >(form not not working yet!)<br>
+                </td>
+                </tr>
+            </table>
+        </form>
+    </div><!-- end formy -->
