@@ -18,6 +18,9 @@ let songs =['track_1_rush_cover_R30_Overture.mp3',
 
 $('#pauseButton').hide(); //Hide Pause on page load
 
+ //animate player slide up on page load
+ $('#playerArea').animate({'bottom': '0%'}, 1200);
+    
 playTune($('#trackNames li:first-child')); // Play First Song if play clicked / have ready when page loaded
 	
 function playTune(songPassedIn){
@@ -191,29 +194,55 @@ function displayDuration(){
 
 // XMLHttpRequests to insert data on first click of each nav link
 $('#about, #videos, #contact').on('click' , insert_Content);
-$('#home').on('click' , re_Insert_Content);
+$('#home').click(re_Insert_Content);
 
+// toggle active class for main nav links
+function toggleNavActive(element){
+    $('.mainNav').removeClass('navActive');
+    document.getElementById(element).classList.add('navActive');
+};
+//div content reshown if already loaded
 function re_Insert_Content(){
     let currentId = this.id;
-    console.log('re-pop test iz : ' + currentId);
+    toggleNavActive(currentId);
+    
     //get other divs and add display none to hide
-    $('#about_Content, #home_Content, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
+    $('#about_Content, #home_Content, #contact_Content').addClass('displayNone').removeClass('displayBlock');
 
+    //video content needs own property..has bug when embedded content reshown
+    $('#videos_Content').addClass('displayOffView').removeClass('displayBlock');
+    if (currentId == 'videos') {
+        $('#videos_Content').removeClass('displayOffView');
+    }
+    
     //remove display none and add display block to show this div
     $('#' + currentId + '_Content').addClass('displayBlock').removeClass('displayNone');
 
 }
 
+
 //main nav first click insert function
 function insert_Content(){
     let currentId = this.id;
     console.log('test iz : ' + currentId);
+
+    //toggle nav link active class
+    toggleNavActive(currentId);
+
     //get other divs and add display none to hide / remove display block
-    $('#home_Content, #about_Content, #contact_Content,#videos_Content').addClass('displayNone').removeClass('displayBlock');
-    
+    $('#home_Content, #about_Content, #contact_Content').addClass('displayNone').removeClass('displayBlock');
+
+    //video content needs own property..has bug when embedded content reshown
+    $('#videos_Content').addClass('displayOffView');    
+    if (currentId == 'videos') {
+        $('#videos_Content').removeClass('displayOffView displayNone');
+    }
+
     //remove display none and add display block to show this div
     $('#' + currentId + '_Content').addClass('displayBlock').removeClass('displayNone');
-    
+    if (currentId == 'videos') {
+        $('#videos_Content').removeClass('displayBlock displayNone');
+    }
         let xhr = new XMLHttpRequest();
         xhr.open("GET", currentId + ".html");
 
@@ -228,4 +257,10 @@ function insert_Content(){
         //remove XMLHttpRequest after clicking once and add new event to reshow data without downloading again
         $('#' + currentId).off('click' , insert_Content).on('click' , re_Insert_Content);
      
-}; //end about functions
+}; //end main nav function
+
+///////////////////Video page/div////////////////////
+// $('#vid-item').click( function(){
+//     $('#vid_frame').attr('src' , 'https://www.youtube.com/embed/watch?v=-7yWVUmBrD4?autoplay=1');
+//     console.log('clicked');
+// });
