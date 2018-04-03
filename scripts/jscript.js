@@ -207,16 +207,16 @@ function re_Insert_Content(){
     toggleNavActive(currentId);
     
     //get other divs and add display none to hide
-    $('#about_Content, #home_Content, #contact_Content').addClass('displayNone').removeClass('displayBlock');
+    $('#about_Content, #home_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
 
     //video content needs own property..has bug when embedded content reshown
-    $('#videos_Content').addClass('displayOffView').removeClass('displayBlock');
+    $('#videos_Content').addClass('displayOffView').removeClass('displayPlusIndex');
     if (currentId == 'videos') {
         $('#videos_Content').removeClass('displayOffView');
     }
     
     //remove display none and add display block to show this div
-    $('#' + currentId + '_Content').addClass('displayBlock').removeClass('displayNone');
+    $('#' + currentId + '_Content').addClass('displayPlusIndex').removeClass('displayMinusIndex');
 
 }
 
@@ -230,19 +230,19 @@ function insert_Content(){
     toggleNavActive(currentId);
 
     //get other divs and add display none to hide / remove display block
-    $('#home_Content, #about_Content, #contact_Content').addClass('displayNone').removeClass('displayBlock');
+    $('#home_Content, #about_Content, #videos_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
 
     //video content needs own property..has bug when embedded content reshown
-    $('#videos_Content').addClass('displayOffView');    
-    if (currentId == 'videos') {
-        $('#videos_Content').removeClass('displayOffView displayNone');
-    }
+    // $('#videos_Content').addClass('displayOffView');    
+    // if (currentId == 'videos') {
+    //     $('#videos_Content').removeClass('displayMinusIndex');
+    // }
 
     //remove display none and add display block to show this div
-    $('#' + currentId + '_Content').addClass('displayBlock').removeClass('displayNone');
-    if (currentId == 'videos') {
-        $('#videos_Content').removeClass('displayBlock displayNone');
-    }
+    $('#' + currentId + '_Content').addClass('displayPlusIndex').removeClass('displayMinusIndex');
+    // if (currentId == 'videos') {
+    //     $('#videos_Content').removeClass('displayPlusIndex displayMinusIndex');
+    // }
         let xhr = new XMLHttpRequest();
         xhr.open("GET", currentId + ".html");
 
