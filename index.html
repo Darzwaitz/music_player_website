@@ -7,31 +7,34 @@
 	<meta name="keywords" content="grace under pressure tribute">
 <!-- 	<meta name="author" content="Big D">-->
 <title>Grace Under Pressure</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
-	
-<header>
-    <nav>
-        <div id="siteName">    
-          <h1>Grace Under Pressure - A tribute to Rush</h1>
-        </div>
-    <div id="navLinks">
-        <ul>
-          <li id="about" class="mainNav" ><a href="#about">About</a></li>
-          <li id="home" class="mainNav navActive"><a href="#home">Home</a></li>
-          <li id="videos" class="mainNav"><a href="#videos">Videos</a></li>
-          <li id="contact" class="mainNav"><a href="#contact">Contact</a></li>
-        </ul>  
-    </div>
-    </nav>
-</header>
 
-<main>
-     <section>
-         <div id="home_Content">
-                <ul id="trackNames" >
+    <div class="container">
+
+        <header>
+            <nav class="navigationTop"  >
+                <div id="siteName">    
+                <h1>Grace Under Pressure - A tribute to Rush</h1>
+                </div>
+            <div id="navLinks">
+                <ul>
+                <li id="about" class="mainNav" ><a href="#about">About</a></li>
+                <li id="home" class="mainNav navActive"><a href="#home">Home</a></li>
+                <li id="videos" class="mainNav"><a href="#videos">Videos</a></li>
+                <li id="photos" class="mainNav"><a href="#photos">Photos</a></li>
+                <li id="schedule" class="mainNav"><a href="#schedule">Schedule</a></li>
+                <li id="contact" class="mainNav"><a href="#contact">Contact</a></li>
+                
+                </ul>  
+            </div>
+            </nav>
+        </header>
+        <!-- landing section -->
+        <section id="home_Content">
+                <ul id="trackNames">
                         <li><h2>R30 Overture</h2></li>
                         <li><h2>Earthshine</h2></li>
                         <li><h2>Subdivisions</h2></li>
@@ -47,69 +50,75 @@
                         <li><h2>Mission</h2></li>
                     </ul>    
             
-         </div> <!-- end trackList -->
-         <div id="about_Content" class="displayNone">about</div>
-         <div id="contact_Content" class="displayNone">contact</div>
-         <div id="videos_Content" class="displayNone">videos</div>
+        </section>  <!-- end home_Content section (trackList)  -->
 
-         <!-- temp testing code -->
-            <!-- <div id="videos_Content" class="">
-                <div class="vid-container">
-                    <iframe id="vid_frame" width="80%" height="300" src="https://www.youtube.com/embed/Bv-NT_gaJwY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </div> -->
-             <!--end video content-->
-            <!-- <div id="vid-item">
-                <div class="thumb">
-                    <img src="http://img.youtube.com/vi/-7yWVUmBrD4/2.jpg">
-                </div>
-               
-                <div id="desc">
-                        Earthshine by Rockhouse
-                </div> </div>-->
+
+        <section id="about_Content"  class="displayMinusIndex" >about</section>
+        <section id="contact_Content" class=" displayMinusIndex" >contact</section>
+        <section id="videos_Content"  class="displayMinusIndex" >videos</section>
             
-            <!-- End vid-item -->
-          
-       <footer>
-        <span><h4>Pete'z website - Copyright &copy; 2018</h4></span>
-        <!-- link to external font site -->
-        <a href="http://www.2112.net/rushfonts" title="Font for this site" target="_blank"><img id="font-img" border="1" style="border-color: silver" src="http://www.2112.net/rushfonts/rfpbanner.gif" alt="Click here for the RUSH Font Project"></a>
-       </footer>  
-     </section>   
-     
-</main> 
+
+                <!-- temp testing code -->
+                    <!-- <div id="videos_Content" class="">
+                        <div class="vid-container">
+                            <iframe id="vid_frame" width="80%" height="300" src="https://www.youtube.com/embed/Bv-NT_gaJwY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div> -->
+                    <!--end video content-->
+                    <!-- <div id="vid-item">
+                        <div class="thumb">
+                            <img src="http://img.youtube.com/vi/-7yWVUmBrD4/2.jpg">
+                        </div>
+                    
+                        <div id="desc">
+                                Earthshine by Rockhouse
+                        </div> </div>-->
+                    
+                    <!-- End vid-item -->
+                
+                
+            <!-- </section>    -->
+            
+        <!-- </main>  -->
+        <footer>
+                <span><h4>Pete'z website - Copyright &copy; 2018</h4></span>
+                <!-- link to external font site -->
+                <a href="http://www.2112.net/rushfonts" title="Font for this site" target="_blank"><img id="font-img" border="1" style="border-color: silver" src="http://www.2112.net/rushfonts/rfpbanner.gif" alt="Click here for the RUSH Font Project"></a>
+        </footer>
+        
+    </div><!-- main grid container end	 -->
                                 <!-- PLAYER AREA -->
-<div id="playerArea">
-    <!-- top div in player -->
-    <div id="playerTextArea">
-        <div id="trackNumber"><h1>Track NO: </h1></div> <!--Track NO: 01 -->
-        <div id="trackTitle"><h1>Track Title is test</h1></div> <!-- end trackTitle-->
-        <div id="moreInfo"><h1>more info</h1></div> <!-- more info-->
-    </div><!-- end player text area -->
-    
-    <!-- bottom div in player -->
-    <div id="playerCtrls">
-        <div id="skipBackward"></div>
-        <div id="rewind"></div>
-        <div id="playButton"></div> 
-        <div id="pauseButton"></div> 
-        <div id="progressBarArea">
-            <div id="emptyProgress">
-                <span id="displayProgress">
+    <div id="playerArea" class="ctrls">
+        <!-- top div in player -->
+        <div id="playerTextArea">
+            <div id="trackNumber"><h1>Track NO: </h1></div> <!--Track NO: 01 -->
+            <div id="trackTitle"><h1>Track Title is test</h1></div> <!-- end trackTitle-->
+            <div id="moreInfo"><h1>more info</h1></div> <!-- more info-->
+        </div><!-- end player text area -->
+        
+        <!-- bottom div in player -->
+        <div id="playerCtrls">
+            <div id="skipBackward"></div>
+            <div id="rewind"></div>
+            <div id="playButton"></div> 
+            <div id="pauseButton"></div> 
+            <div id="progressBarArea">
+                <div id="emptyProgress">
+                    <span id="displayProgress">
+                    </span>
+                </div>
+                <span id="durationTimeStart">
+                </span> 
+                <span id="durationTimeEnd">
                 </span>
-            </div>
-            <span id="durationTimeStart">
-            </span> 
-            <span id="durationTimeEnd">
-            </span>
-        </div> <!--end progress bar div-->
-        <div id="fastForward"></div>
-        <div id="skipForward"></div>
-        <div id="volumeBar"><div id="volIcon"></div>
-            <input id="volBar" type="range" min="0" max="11"/>
-        </div> <!-- end volumeBar -->
-    </div> <!-- END playerCtrls -->
-</div> <!-- END playerArea -->
+            </div> <!--end progress bar area div-->
+            <div id="fastForward"></div>
+            <div id="skipForward"></div>
+            <div id="volumeBar"><div id="volIcon"></div>
+                <input id="volBar" type="range" min="0" max="11"/>
+            </div> <!-- end volumeBar -->
+        </div> <!-- END playerCtrls -->
+    </div> <!-- END playerArea -->
 
 <script src="scripts/jquery-3.3.1.js" ></script>
 <script src="scripts/jscript.js" ></script>
