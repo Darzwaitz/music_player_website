@@ -28,15 +28,15 @@ function playTune(songPassedIn){
     let songIndexNumber = songPassedIn.index(), // get current song index number
         songCurrentTitle = songPassedIn.text(); //get current song title
 
-    $('#trackTitle h1').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
+    $('#trackTitle h3').text('Track Title : ' + songCurrentTitle); //display current song title on track title area
     // console.log('song name: ' + songCurrentTitle);
 
     //add a '0' if track number is less than 10
     if (songIndexNumber < 9) {
-        $('#trackNumber h1').text('Track No: 0' + (songIndexNumber + 1)); //display current track number on track number area
+        $('#trackNumber h3').text('Track No: 0' + (songIndexNumber + 1)); //display current track number on track number area
         }
         else{
-        $('#trackNumber h1').text('Track No: ' + (songIndexNumber + 1)); //display current track number on track number area
+        $('#trackNumber h3').text('Track No: ' + (songIndexNumber + 1)); //display current track number on track number area
     }
     	
     audio = new Audio('media/' + songs[songIndexNumber]); // create new Audio Object
@@ -230,19 +230,19 @@ function insert_Content(){
     toggleNavActive(currentId);
 
     //get other divs and add display none to hide / remove display block
-    $('#home_Content, #about_Content, #videos_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
+    $('#home_Content, #about_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
 
     //video content needs own property..has bug when embedded content reshown
-    // $('#videos_Content').addClass('displayOffView');    
-    // if (currentId == 'videos') {
-    //     $('#videos_Content').removeClass('displayMinusIndex');
-    // }
+    $('#videos_Content').addClass('displayOffView');    
+    if (currentId == 'videos') {
+        $('#videos_Content').removeClass('displayOffView displayMinusIndex');
+    }
 
     //remove display none and add display block to show this div
     $('#' + currentId + '_Content').addClass('displayPlusIndex').removeClass('displayMinusIndex');
-    // if (currentId == 'videos') {
-    //     $('#videos_Content').removeClass('displayPlusIndex displayMinusIndex');
-    // }
+    if (currentId == 'videos') {
+        $('#videos_Content').removeClass('displayPlusIndex displayMinusIndex');
+    }
         let xhr = new XMLHttpRequest();
         xhr.open("GET", currentId + ".html");
 
