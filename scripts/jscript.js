@@ -190,6 +190,7 @@ function displayDuration(){
         
 	});
 };
+
 ///////////////////Navigation////////////////////
 
 // XMLHttpRequests to insert data on first click of each nav link

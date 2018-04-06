@@ -34,7 +34,7 @@ body{
     background-repeat: repeat-y;
     background-size: 100%;
     font-family: gup, tahoma, verdana;
-    font-size: normal;
+    /* font-size: normal; */
     letter-spacing: 0.0325em;
     
     text-shadow: 0 1px 0 #CACDE2, 
@@ -58,8 +58,8 @@ h2{
 } 
 h3{
     text-align: center;
-    /* font-size: xx-large;
-    margin-top: 3%; */
+    font-size: 200%;
+    margin-top: 0;
 }                              
                                                 /* TOP NAV AREA*/
 
@@ -281,7 +281,7 @@ section{
     /* left: 0;
     bottom: 0; */
 	 width: 100%;
-	height: 20%; 
+	/* height: 20%;  */
 	background-color: rgb(255, 255, 255);
     /* opacity: .4; */
     /* margin: 0; */
@@ -293,21 +293,10 @@ section{
     /* position: relative; */
     z-index: 4;  
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1fr 1fr;
-    grid-row-gap: 4px;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: 70px 45px;
+    /* grid-row-gap: -20px; */
 }
-/* top divz */
-/* #playerTextArea{ */
-    /* background-color: rgb(255, 255, 255); */
-    /* width: 100%;
-    height: 50%; */
-    
-/* } */
-/* #playerTextArea h1{ */
-    /* margin : 0; */
-    /* margin-top : 4%;
-} */
 
 #trackNumber{
     /* background-color: violet; */
@@ -316,9 +305,13 @@ section{
     display: block;
     float: left; */
     /* position: absolute; */
-    grid-column: 1 / 4;
-    grid-row: 1 /2 ;
     
+    grid-column: 1 / 8;
+    grid-row: 1 /2 ;
+   
+    margin-top: 20px;
+    margin-bottom: 0px;
+
 
 }
 #trackTitle{
@@ -329,9 +322,12 @@ section{
     text-align: left;
     margin-top: -1%; */
     /* color: tomato; */
-    grid-column: 4 / 10;
+    grid-column: 8 / 20;
     grid-row: 1 /2 ;
   
+    margin-top: 20px;
+    margin-bottom: 0px;
+
     
 }
 
@@ -341,8 +337,12 @@ section{
     height: 100%; */
     /* display: inline-block; */
     /* float: right; */
-    grid-column: 10 / 13;
+    grid-column: 20 / 26;
     grid-row: 1 / 2 ;
+    
+    margin-top: 20px;
+    /* margin-bottom: 0px; */
+
 }
 /* bottom divz-ctrls */
 /* #playerCtrls{ */
@@ -355,7 +355,7 @@ section{
     /* width: 100px; */
     /* height: 100px; */
     /* display: inline-block; */
-    grid-column: 1 / 2;
+    grid-column: 4 / 6;
     grid-row: 2 / 3 ;
 
       
@@ -365,7 +365,7 @@ section{
     /* width: 10%;
     height: 100%;
     display: inline-block; */
-    grid-column: 2 / 3;
+    grid-column: 6 / 8;
     grid-row: 2 / 3 ;
 }
 #playButton{
@@ -375,68 +375,68 @@ section{
     display: inline-block; */
     /* filter: drop-shadow( -5px -5px 5px #000 ); */
     filter:drop-shadow(2px 0px 4px black);
-    grid-column: 3 / 4;
+    grid-column: 8 / 10;
     grid-row: 2 / 3 ;
 }
 
 #pauseButton{
     background: url(../iconz/pause.svg) no-repeat center;
-    /* width: 10%;
-    height: 100%;
-    display: inline-block; */
-    /* filter: drop-shadow( -5px -5px 5px #000 ); */
     filter:drop-shadow(2px 0px 4px black);
-    grid-column: 3 / 4;
+    grid-column: 8 / 10;
     grid-row: 2 / 3 ;
 }
-#progressBarArea{
-    /* width: 33%;
-    height: 100%; */
-    /* display: inline-block; */
-    /* background: rgb(248, 9, 9); */
-    /* display: inline-block; */
-    /* float: left; */
-    /* position: relative; */
-    grid-column: 4 / 9;
-    grid-row: 2 / 3 ;
-}
-#emptyProgress{
-    /* background-color: yellow; */
-    height: 80%;
-    margin-left: 25%;
-    margin-top: 8%;
-    background : url(../img/progress_bg.png) no-repeat;
-    background-size: 80% 20%;
-  
-}
-#displayProgress{
-    height: 80%;
-    margin-top: -2%;
-    background : url(../img/progress.png) no-repeat;
-    background-size: 80% 28%;
-    display: block;
-    width: 0%;
-}
-#durationTimeStart{
-    position:absolute;
-	top:30%;
-	left:10%;
-	padding: 2px 4px 0px;
-	background:#000;
-    border-radius:4px;
-    color: white;
-    
-}
-#durationTimeEnd{
-    position:absolute;
-	top:30%;
-	left:88%;
-	padding: 2px 4px 0px;
-	background:#000;
-    border-radius:4px;
-    color: white;
-    float: right;
-}
+
+/* nested grid */
+    #emptyProgress{
+        background : url(../img/progress_bg.png) no-repeat;
+        grid-column: 11 / 17;
+        grid-row: 2 / 3 ;
+        margin-top: 10%;
+        /* justify-self: center;
+        align-self: center; */
+    }
+    #displayProgress{
+        /* height: 80%;
+        margin-top: -2%;
+        background-size: 80% 28%;
+        display: block;*/
+        width: 0%; 
+        background : url(../img/progress.png) no-repeat;
+        grid-column: 11 / 17;
+        grid-row: 2 / 3 ;
+        margin-top: 10%;
+      
+    }
+    #durationTimeStart{
+        /* position:absolute; */
+        /* top:25%;
+        left:10%; */
+        padding: 2px 4px 0px;
+        background:#000;
+        border-radius:4px;
+        color: white;
+        grid-column: 10 / 11;
+        grid-row: 2 / 3 ;
+        justify-self: center;
+        align-self: center;
+        margin-left: -50%;
+        
+    }
+    #durationTimeEnd{
+        /* position:absolute; */
+        /* top:25%; */
+        /* left:88%; */
+        padding: 2px 4px 0px;
+        background:#000;
+        border-radius:4px;
+        color: white;
+        /* float: right; */
+        grid-column: 17 / 18;
+        grid-row: 2 / 3 ;
+        justify-self: center;
+        align-self: center;
+        
+    }
 
 
 #fastForward{
@@ -444,7 +444,7 @@ section{
     /* width: 10%;
     height: 100%;
     display: inline-block; */
-    grid-column: 9 / 10;
+    grid-column: 18 / 19;
     grid-row: 2 / 3 ;
 }
 #skipForward{
@@ -452,7 +452,7 @@ section{
     /* width: 10%;
     height: 100%;
     display: inline-block; */
-    grid-column: 10 / 11;
+    grid-column: 19 / 21;
     grid-row: 2 / 3 ;
 }
 
@@ -465,24 +465,45 @@ section{
     display: inline-block;
     vertical-align: top;
     padding-top: 1.5%; */
-    grid-column: 11 / 13;
+    grid-column: 21 / 24;
     grid-row: 2 / 3 ;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    /* justify-items: center; */
+    
+    
+}
+#volumeBar2{
+    position: relative;
+    /* background-color: tomato; */
+    /* width: 10%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 1.5%; */
+    grid-column: 1 / 5;
+    grid-row: 2 / 3 ;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    /* justify-items: center; */
     
     
 }
 #volIcon{
     position: absolute;
     /* background-color: rgb(34, 250, 6); */
-    height: 24%;
-    width: 24%;
-    top: 20%;
+    height: 30%;
+    width: 22%;
+    top: 35%;
     background: url(../iconz/volume_icon.svg) no-repeat center;
     
 }
 input#volBar{
-    width: 65%;
-    vertical-align: top;
-    float: right;
+    width: 45%;
+    /* vertical-align: top;
+    float: right; */
     background-color:rgba(212, 217, 222, 0.5);
     border-radius: 8px;
     outline-style:none; /*take off focus colour*/
@@ -490,6 +511,11 @@ input#volBar{
     border-style: solid;
     border-width: thin;
     -webkit-appearance: none !important; 
+    /* justify-self: center;
+    align-self: center; */
+    grid-column: 1 / 3;
+    margin-left: 28%;
+    /* align-self: right; */
 }
  /* replace slider img */
 input#volBar::-webkit-slider-thumb {
