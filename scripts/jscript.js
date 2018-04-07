@@ -43,7 +43,7 @@ function playTune(songPassedIn){
     
 	// if no track playing yet
 	if(!audio.currentTime){
-        $('#durationTimeStart').text('<- Play');
+        $('#durationTimeStart').html('&#8592;play');
         $('#durationTimeEnd').hide();
     }
     
@@ -199,6 +199,7 @@ $('#home').click(re_Insert_Content);
 
 // toggle active class for main nav links
 function toggleNavActive(element){
+   
     $('.mainNav').removeClass('navActive');
     document.getElementById(element).classList.add('navActive');
 };
@@ -218,7 +219,8 @@ function re_Insert_Content(){
     
     //remove display none and add display block to show this div
     $('#' + currentId + '_Content').addClass('displayPlusIndex').removeClass('displayMinusIndex');
-
+    //stop page jumping on link click
+    return false;
 }
 
 
@@ -226,7 +228,7 @@ function re_Insert_Content(){
 function insert_Content(){
     let currentId = this.id;
     console.log('test iz : ' + currentId);
-
+ // preventDefault();
     //toggle nav link active class
     toggleNavActive(currentId);
 
@@ -257,7 +259,8 @@ function insert_Content(){
         xhr.send(null);
         //remove XMLHttpRequest after clicking once and add new event to reshow data without downloading again
         $('#' + currentId).off('click' , insert_Content).on('click' , re_Insert_Content);
-     
+        //stop page jumping on link click
+        return false;
 }; //end main nav function
 
 ///////////////////Video page/div////////////////////
