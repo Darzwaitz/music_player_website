@@ -30,12 +30,18 @@
 body{
 	margin : 0;
 	padding: 0;
-    background: url(../img/album-coverresize-1.jpg) no-repeat;
+    background: url(../img/grace-under-pressure-main-background.jpg) no-repeat; 
+    
     background-repeat: repeat-y;
-    background-size: 100%;
+    /* background-size: 100%; */
+    background-size:contain;
     font-family: gup, tahoma, verdana;
     /* font-size: normal; */
     letter-spacing: 0.0325em;
+
+    width: 100%;
+    height: auto;
+    background-size: 100%;
     
     text-shadow: 0 1px 0 #CACDE2, 
              
@@ -185,7 +191,7 @@ nav{
     float: left;
     /* padding-left: 5%; */
 	width:85%;
-	height: 110%;
+	/* height: 110%; */
     /* background-color: lawngreen; */
     columns: 2;
     -webkit-columns: 2;
@@ -232,6 +238,11 @@ nav{
     /* background-color: lightblue; */
     /* background-color: aquamarine; */
 }
+#aboutDiv{
+    padding-left: 10%;
+    padding-right: 10%;
+    line-height: 240%;
+}
 
 
 .displayMinusIndex{
@@ -263,7 +274,7 @@ nav{
  #videos_Content:before
  {
     position: absolute;
-    background: url(../img/Rush-making-video-for-grace.jpg) 42%;
+    background: url(../img/grace-under-pressure-section-background-2.jpg) 42%;
     box-shadow: 0 2px 14px 14px white inset;
     border-radius: 4px;
     top:0;

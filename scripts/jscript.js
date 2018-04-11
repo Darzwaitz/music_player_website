@@ -98,13 +98,13 @@ $('#skipBackward').click(function(){
     
 });
 //rewind
-$('#rewind').click(function(){
-    audio.playbackRate -= 0.9;
+// $('#rewind').click(function(){
+//     audio.playbackRate -= 0.9;
     
-    $('#pauseButton').hide();
-	$('#playButton').show();
-    console.log('clickd again');
-});
+//     $('#pauseButton').hide();
+// 	$('#playButton').show();
+//     console.log('clickd again');
+// });
 
 // skip to next 
 $('#skipForward').click(function(){
