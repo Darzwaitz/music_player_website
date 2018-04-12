@@ -19,7 +19,7 @@ let songs =['track_1_rush_cover_R30_Overture.mp3',
 $('#pauseButton').hide(); //Hide Pause on page load
 
  //animate player slide up on page load
- $('#playerArea').animate({'bottom': '0%'}, 1200);
+ $('#playerArea').animate({'bottom': '0%'}, 1850);
     
 playTune($('#trackNames li:first-child')); // Play First Song if play clicked / have ready when page loaded
 	
@@ -194,7 +194,7 @@ function displayDuration(){
 ///////////////////Navigation////////////////////
 
 // XMLHttpRequests to insert data on first click of each nav link
-$('#about, #videos, #contact').on('click' , insert_Content);
+$('#about, #videos, #schedule, #contact').on('click' , insert_Content);
 $('#home').click(re_Insert_Content);
 
 // toggle active class for main nav links
@@ -209,7 +209,7 @@ function re_Insert_Content(){
     toggleNavActive(currentId);
     
     //get other divs and add display none to hide
-    $('#about_Content, #home_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
+    $('#about_Content, #home_Content, #schedule_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
 
     //video content needs own property..has bug when embedded content reshown
     $('#videos_Content').addClass('displayOffView').removeClass('displayPlusIndex');
@@ -233,7 +233,7 @@ function insert_Content(){
     toggleNavActive(currentId);
 
     //get other divs and add display none to hide / remove display block
-    $('#home_Content, #about_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
+    $('#home_Content, #about_Content, #schedule_Content, #contact_Content').addClass('displayMinusIndex').removeClass('displayPlusIndex');
 
     //video content needs own property..has bug when embedded content reshown
     $('#videos_Content').addClass('displayOffView');    
