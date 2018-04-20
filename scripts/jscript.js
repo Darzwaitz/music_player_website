@@ -253,7 +253,7 @@ function insert_Content(){
             if (xhr.readyState === 4 && xhr.status === 200 ) {
 
                     let newContent = document.getElementById(currentId + '_Content'); //get about div
-                    newContent.innerHTML = xhr.responseText; // populate about div
+                    newContent.innerHTML = xhr.responseText; // populate sectionContent div
             }
         }
         xhr.send(null);
