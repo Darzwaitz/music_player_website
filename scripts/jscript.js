@@ -191,7 +191,9 @@ function displayDuration(){
 	});
 };
 
-///////////////////Navigation////////////////////
+                                                        ///////////////////Navigation////////////////////
+
+
 
 // XMLHttpRequests to insert data on first click of each nav link
 $('#about, #videos, #schedule, #contact').on('click' , insert_Content);
@@ -228,6 +230,11 @@ function re_Insert_Content(){
 function insert_Content(){
     let currentId = this.id;
     console.log('test iz : ' + currentId);
+    if (currentId === 'formButton') {
+        currentId = 'contact';
+    }
+    console.log('id after iz : ' + currentId);
+    
  // preventDefault();
     //toggle nav link active class
     toggleNavActive(currentId);
@@ -267,4 +274,38 @@ function insert_Content(){
 // $('#vid-item').click( function(){
 //     $('#vid_frame').attr('src' , 'https://www.youtube.com/embed/watch?v=-7yWVUmBrD4?autoplay=1');
 //     console.log('clicked');
+// });
+$(document).on('submit', '#myform', function(event){
+    event.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "contactForm.php",
+        data: $(this).serialize(),		
+        success: function(data){
+            $('#result').html(data);
+            let buttonTest = $('#formButton');
+            console.log(buttonTest);
+        }					
+    });
+
+});
+$( document ).ajaxComplete(function() {
+    console.log('complete funct');
+    $( "#formButton" ).on( 'click', insert_Content);
+  });
+  function testButton(){
+      console.log('test button working');
+  };
+// $(document).on('submit', '#myform', function(event){
+//     event.preventDefault();
+//     $.ajax({
+//         type: "POST",
+//         url: "contactForm.php",
+//         data: $(this).serialize(),		
+//         success: function(data){
+//             $('#result').html(data);
+            
+//         }					
+//     });
+
 // });

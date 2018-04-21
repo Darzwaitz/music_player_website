@@ -1,27 +1,20 @@
-<?php
-echo 'tesht';
-?>
-<!-- <h2>Please contact us here about any enquiries you may have, and we'll get back to you A.S.A.P!</h2> -->
-<h2>The Contact page will be working soon!</h2>
+<div id='result'></div>
 
-<!-- <div class="formy"> -->
-        <form action="contact_form.php" method="post" >
-            <table id="formTable">
-                <tr>
-                    <th class="formname"><label for="form_name" ><h2>Name</h2></label><input type="text" name="fullname" id="form_name" size="45" placeholder=" Please enter your name"required></th>
-                    <th class="formemailadd"><label for="form_email"><h2>Email address</label></h2><input type="text" id="form_email" name="email" size="45" placeholder=" Please enter your Email address" required></th>
-                </tr>
-                <tr>
-                    <th class="formcommentz" colspan="2"><label for="form_comments"><h2>Commentz</label></h2>
-                    <textarea rows="6" cols="55" name="comments" id="form_comments" placeholder=" Whats on your mind?" required></textarea>
-                    </th>
-                </tr>
-                <tr>
-                <td >
-                    <input type="submit" value="Click to Send!" class="feedBack"  >
-                </td>
-                </tr>
-            </table>
-        </form>
-<!--</div> end formy -->
-
+<form id="myform" method="post" >
+    <table id="formTable">
+        <tr>
+            <th class="formname"><label for="form_name" ><h2>Name</h2></label><input type="text" name="name" id="form_name" size="45" placeholder=" Please enter your name"required></th>
+            <th class="formemailadd"><label for="form_email"><h2>Email address</label></h2><input type="text" id="form_email" name="email" size="45" placeholder=" Please enter your Email address" required></th>
+        </tr>
+        <tr>
+            <th class="formcommentz" colspan="2"><label for="form_comments"><h2>Commentz</label></h2>
+            <textarea rows="6" cols="55" name="comments" id="form_comments" placeholder=" Whats on your mind?" required></textarea>
+            </th>
+        </tr>
+        <tr>
+        <td >
+            <input type="submit" name="submit" value="Click to Send!" class="feedBack"  >
+        </td>
+        </tr>
+    </table>
+</form>
