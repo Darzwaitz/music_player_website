@@ -31,18 +31,15 @@ body{
 	margin : 0;
 	padding: 0;
     background: url(../img/grace-under-pressure-main-background.jpg) no-repeat; 
-    
     background-repeat: repeat-y;
     /* background-size: 100%; */
     background-size:contain;
     font-family: gup, tahoma, verdana;
     /* font-size: normal; */
     letter-spacing: 0.0325em;
-
     width: 100%;
     height: auto;
     background-size: 100%;
-    
     text-shadow: 0 1px 0 #CACDE2, 
              
                0 3px 5px rgba(0,0,0,.2),
@@ -65,7 +62,11 @@ h3{
     text-align: center;
     font-size: 200%;
     margin-top: 0;
-}                              
+}  
+h3.video{
+    font-size: 150%;
+    
+}                            
                                                 /* TOP NAV AREA*/
 
 /* header */
@@ -259,7 +260,11 @@ nav{
     opacity: .3;
     z-index: -1;
  }
-                                                        /* FORM AREA */
+                /* Video content */
+ .vid_container{
+    text-align: center;
+ }
+                /* FORM AREA */
 #formButton{
     padding: 16px 32px;
     text-align: center;

@@ -230,12 +230,13 @@ function re_Insert_Content(){
 function insert_Content(){
     let currentId = this.id;
     console.log('test iz : ' + currentId);
+    // preventDefault();
+
+    // change form button reload id for the form reload functionality
     if (currentId === 'formButton') {
         currentId = 'contact';
     }
-    console.log('id after iz : ' + currentId);
     
- // preventDefault();
     //toggle nav link active class
     toggleNavActive(currentId);
 
@@ -270,11 +271,8 @@ function insert_Content(){
         return false;
 }; //end main nav function
 
-///////////////////Video page/div////////////////////
-// $('#vid-item').click( function(){
-//     $('#vid_frame').attr('src' , 'https://www.youtube.com/embed/watch?v=-7yWVUmBrD4?autoplay=1');
-//     console.log('clicked');
-// });
+///////////////////Form page/div////////////////////
+
 $(document).on('submit', '#myform', function(event){
     event.preventDefault();
     $.ajax({
@@ -282,30 +280,16 @@ $(document).on('submit', '#myform', function(event){
         url: "contactForm.php",
         data: $(this).serialize(),		
         success: function(data){
+            //display success or error msg on form page
             $('#result').html(data);
-            let buttonTest = $('#formButton');
-            console.log(buttonTest);
-        }					
+            console.log('success complete');
+        },
+        complete: function(){
+        // make new request to reload an empty form
+            $( "#formButton" ).on( 'click', insert_Content);
+            console.log('complete complete');
+        }
     });
 
 });
-$( document ).ajaxComplete(function() {
-    console.log('complete funct');
-    $( "#formButton" ).on( 'click', insert_Content);
-  });
-  function testButton(){
-      console.log('test button working');
-  };
-// $(document).on('submit', '#myform', function(event){
-//     event.preventDefault();
-//     $.ajax({
-//         type: "POST",
-//         url: "contactForm.php",
-//         data: $(this).serialize(),		
-//         success: function(data){
-//             $('#result').html(data);
-            
-//         }					
-//     });
 
-// });
