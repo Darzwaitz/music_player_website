@@ -6,7 +6,7 @@
 		
 	} else {
 	
-		$to = "darzwaitz@gmail.com,darzwaitz@yahoo.com";
+		$to = "my_email@gmail.com,my_2ndemail@yahoo.com";
 
 		$name = htmlspecialchars($_POST['name']);
 		$email = htmlspecialchars($_POST['email']);
