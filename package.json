@@ -1,0 +1,28 @@
+{
+  "name": "grace_under_pressure",
+  "version": "1.0.0",
+  "description": "A Single Page Application for web, built for a client with the main functionality being a music player and clickable playlist\r - Also includes a contact form, youtube embedded playlist and other sections that load asynchronously with AJAX, so music being played via the player will not be interrupted when navigating the site.\r - The website utilizes jQuery and Vanilla JS, and along with HTML and CSS, PHP is also used in the code.\r - CSS Grid is utilized for the efficient responsiveness of the site on mobile devices.\r - [This website is live and can be viewed by clicking here](http://graceunderpressureband.ca/ \"Grace Under Pressure Homepage\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darzwaitz/music_player_website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darzwaitz/music_player_website/issues"
+  },
+  "homepage": "https://github.com/Darzwaitz/music_player_website#readme",
+  "dependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+    "grunt-contrib-watch": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.2"
+  }
+}

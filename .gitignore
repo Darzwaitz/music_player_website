@@ -1,2 +1,4 @@
 media/*
-img.zip/*
+img/*
+node_modules/*
+build/*
